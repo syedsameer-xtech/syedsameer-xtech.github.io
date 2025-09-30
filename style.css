@@ -1,11 +1,6 @@
 /* Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-/* Body */
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #000;
@@ -14,14 +9,12 @@ body {
   position: relative;
 }
 
-/* Animated Dots Background */
+/* Animated Dots */
 body::before {
   content: '';
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
   background: radial-gradient(#ffd700 1px, transparent 1px);
   background-size: 20px 20px;
   animation: moveDots 20s linear infinite;
@@ -34,7 +27,7 @@ body::before {
   100% { background-position: 100px 100px; }
 }
 
-/* Header */
+/* Hero */
 .hero {
   text-align: center;
   padding: 3rem 1rem;
@@ -44,7 +37,6 @@ body::before {
 
 .logo {
   width: 120px;
-  height: auto;
   margin-bottom: 1rem;
   cursor: grab;
 }
@@ -53,7 +45,6 @@ body::before {
   font-size: 2.5rem;
   font-weight: bold;
   color: #ffd700;
-  animation: fadeInUp 1.5s ease-out;
 }
 
 .typing {
@@ -63,12 +54,7 @@ body::before {
   margin-top: 0.5rem;
 }
 
-.hero-buttons {
-  margin-top: 1rem;
-}
-
-.github-btn,
-.resume-btn {
+.hero-buttons a {
   display: inline-block;
   margin: 0.5rem;
   padding: 0.5rem 1rem;
@@ -81,8 +67,7 @@ body::before {
   transition: transform 0.3s ease;
 }
 
-.github-btn:hover,
-.resume-btn:hover {
+.hero-buttons a:hover {
   transform: scale(1.05);
 }
 
@@ -125,29 +110,12 @@ h2 {
   font-size: 2rem;
   margin-bottom: 1rem;
   color: #ffd700;
-  position: relative;
 }
 
-h2::after {
-  content: '';
-  display: block;
-  width: 50px;
-  height: 3px;
-  background-color: #ffd700;
-  margin: 0.5rem auto;
-}
+ul { list-style: none; padding-left: 0; }
+li { margin-bottom: 0.5rem; }
 
-/* Lists */
-ul {
-  list-style: none;
-  padding-left: 0;
-}
-
-li {
-  margin-bottom: 0.5rem;
-}
-
-/* Game Section */
+/* Game */
 .game-container {
   margin-top: 1rem;
 }
@@ -172,91 +140,4 @@ li {
 #game-result {
   margin-top: 1rem;
   font-size: 1.2rem;
-  color: #fff;
-}
-
-.scoreboard {
-  margin-top: 1rem;
-  font-size: 1rem;
-  color: #ffd700;
-  background-color: #111;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 0 10px #ffd700;
-}
-
-/* Win Pop Animation */
-.pop {
-  position: absolute;
-  font-size: 2rem;
-  opacity: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-#win-pop-left {
-  left: 10%;
-}
-
-#win-pop-right {
-  right: 10%;
-}
-
-/* Forms */
-form {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-input,
-textarea {
-  width: 80%;
-  max-width: 500px;
-  margin: 0.5rem 0;
-  padding: 0.5rem;
-  border: none;
-  border-radius: 5px;
-  background-color: #111;
-  color: #ffd700;
-  font-size: 1rem;
-}
-
-button[type="submit"] {
-  background-color: #ffd700;
-  color: #000;
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 5px;
-  font-weight: bold;
-  cursor: pointer;
-  box-shadow: 0 0 10px #ffd700;
-  transition: transform 0.3s ease;
-}
-
-button[type="submit"]:hover {
-  transform: scale(1.05);
-}
-
-/* Scroll to Top */
-#scrollTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #ffd700;
-  color: #000;
-  border: none;
-  padding: 0.5rem 1rem;
-  cursor: pointer;
-  font-size: 1.2rem;
-  border-radius: 5px;
-  box-shadow: 0 0 10px #ffd700;
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
+  color: #fff
