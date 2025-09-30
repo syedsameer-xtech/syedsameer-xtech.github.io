@@ -1,138 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syed Sameer | Cybersecurity Engineer & Web Developer</title>
+
+  <!-- SEO -->
+  <meta name="description" content="Portfolio of Syed Sameer – Cybersecurity Engineer, Web Developer, and Creative Coder. Explore my projects, skills, certifications, and contact details.">
+  <meta name="keywords" content="Syed Sameer, Cybersecurity Engineer, Web Developer, Creative Coder, Portfolio, Python, Machine Learning, Security Projects, Open Source">
+  <meta name="author" content="Syed Sameer">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Syed Sameer | Portfolio">
+  <meta property="og:description" content="Cybersecurity Engineer • Web Developer • Creative Coder">
+  <meta property="og:image" content="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Logo_1.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://syedsameer-xtech.github.io">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Syed Sameer | Portfolio">
+  <meta name="twitter:description" content="Cybersecurity Engineer • Web Developer • Creative Coder">
+  <meta name="twitter:image" content="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Logo_1.png">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Logo_1.png" type="image/png">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js" defer></script>
+  <script src="script.js" defer></script>
+</head>
 <body>
-  <!-- Decorative Background -->
+
+  <!-- STARFIELD BACKGROUND -->
   <canvas id="star-bg" aria-hidden="true"></canvas>
   <div class="cursor" aria-hidden="true"></div>
 
-  <!-- ===== HERO / NAV ===== -->
+  <!-- HERO SECTION -->
   <header class="hero" id="top" role="banner">
-    <nav class="navbar" role="navigation" aria-label="Main">
-      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false">
-        <span class="visually-hidden">Toggle navigation</span>☰
-      </button>
+    <nav class="navbar" role="navigation" aria-label="Main Navigation">
+      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false">☰</button>
       <ul id="primary-menu" class="nav-list">
         <li><a href="#about">About</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Projects</a></li>
+        <li><a href="#certificates">Certificates</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#game">Game</a></li>
       </ul>
     </nav>
 
     <div class="hero-content" data-animate="hero">
-      <picture>
-        <source srcset="Logo_1.webp" type="image/webp">
-        <img src="Logo_1.png" alt="Syed Sameer Logo" class="logo"
-             loading="lazy" width="140" height="140">
-      </picture>
-
-      <div class="typing-container">
-        <h1 id="typing-text" aria-label="Syed Sameer">Syed Sameer</h1>
-      </div>
-
-      <p class="subheading-box">
-        🚀 <span>Cybersecurity Engineer</span> • 🌐 <span>Web Developer</span> • 🎨 <span>Creative Coder</span>
-      </p>
-
+      <img src="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Logo_1.png" alt="Logo of Syed Sameer" class="logo" width="140" height="140">
+      <h1 id="typing-text">Syed Sameer</h1>
+      <p class="subheading-box">🚀 Cybersecurity Engineer • 🌐 Web Developer • 🎨 Creative Coder</p>
       <div class="hero-buttons">
-        <a href="Syed_Sameer_Resume.pdf"
-           class="btn"
-           download
-           aria-label="Download Syed Sameer Resume PDF">📄 Download CV</a>
-        <a href="#contact"
-           class="btn btn-outline"
-           aria-label="Jump to Contact Section">✉️ Contact</a>
+        <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf" class="btn" download>📄 Download CV</a>
+        <a href="#contact" class="btn btn-outline">✉️ Contact</a>
       </div>
     </div>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main role="main">
-    <!-- ===== ABOUT ===== -->
-    <section id="about" aria-labelledby="about-heading" data-section="about">
-      <h2 id="about-heading">About Me</h2>
+
+    <!-- ABOUT -->
+    <section id="about" class="fade-section" aria-labelledby="about-title">
+      <h2 id="about-title">About Me</h2>
       <p>
-        Hi, I’m <strong>Syed Sameer</strong> — a passionate learner, creative thinker,
-        and lifelong technologist. I explore
-        <em>cybersecurity</em>, <em>web development</em>, and <em>machine learning</em>,
-        building meaningful projects and sharpening my skills every day.
+        Hi, I’m <strong>Syed Sameer</strong> — a <b>Cybersecurity Engineer</b>, <b>Web Developer</b>, and <b>Creative Coder</b>. 
+        I specialize in building <em>secure</em>, <em>immersive</em> digital experiences, deploying ML models, and creating interactive web animations with GSAP.
       </p>
     </section>
 
-    <!-- ===== SKILLS ===== -->
-    <section id="skills" aria-labelledby="skills-heading" data-section="skills">
-      <h2 id="skills-heading">Skills</h2>
-      <ul class="skills-list" data-animate="skills">
-        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>Flask</li>
-        <li>Machine Learning</li><li>Cybersecurity</li><li>Git</li><li>SQL</li><li>Linux</li>
+    <!-- SKILLS -->
+    <section id="skills" class="fade-section" aria-labelledby="skills-title">
+      <h2 id="skills-title">Skills</h2>
+      <ul class="skills-list">
+        <li>🐍 Python</li>
+        <li>⚡ JavaScript</li>
+        <li>🌐 HTML & CSS</li>
+        <li>🔥 Flask</li>
+        <li>🤖 Machine Learning</li>
+        <li>🛡️ Cybersecurity</li>
+        <li>🐧 Linux</li>
+        <li>🔗 Git / GitHub</li>
+        <li>🗄️ SQL</li>
       </ul>
     </section>
 
-    <!-- ===== PROJECTS ===== -->
-    <section id="projects" aria-labelledby="projects-heading" data-section="projects">
-      <h2 id="projects-heading">Projects</h2>
+    <!-- PROJECTS -->
+    <section id="projects" class="fade-section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Projects</h2>
       <div class="projects-grid">
-        <article class="project-card" data-animate="project">
-          <h3>🔍 Simple Network Sniffer</h3>
-          <p>Python-based tool for capturing and analyzing network traffic.</p>
-          <a href="https://github.com/august04-oss/codealpha_tasks-01"
-             target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <article class="project-card draggable">
+          <h3>🔐 Cryptography Algorithms</h3>
+          <a href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank">View on GitHub</a>
         </article>
-
-        <article class="project-card" data-animate="project">
-          <h3>🛡️ Phishing Detection Tool <em>(In Progress)</em></h3>
-          <p>ML-powered tool to detect and block phishing URLs in real time.</p>
-          <a href="https://github.com/august04-oss/phishing-url-detector"
-             target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <article class="project-card draggable">
+          <h3>🛡️ Phishing URL Detector</h3>
+          <a href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank">View on GitHub</a>
         </article>
-
-        <article class="project-card" data-animate="project">
-          <h3>🔑 Password Cracking & Hashing</h3>
-          <p>Experiments with secure hashing algorithms and brute-force strategies.</p>
-          <a href="https://github.com/august04-oss/password-cracking-and-hashing"
-             target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <article class="project-card draggable">
+          <h3>🌐 Simple Network Sniffer</h3>
+          <a href="https://github.com/syedsameer-xtech/codealpha_tasks-01" target="_blank">View on GitHub</a>
+        </article>
+        <article class="project-card draggable">
+          <h3>Securing User Registration Systems</h3>
+          <a href="https://github.com/syedsameer-xtech/codealpha_taks-03" target="_blank">View on GitHub</a>
+        </article>
+        <article class="project-card draggable">
+          <h3>Easy Guide to Avoiding Phishing Scams</h3>
+          <a href="https://github.com/syedsameer-xtech/codealpha_taks-02" target="_blank">View on GitHub</a>
         </article>
       </div>
     </section>
 
-    <!-- ===== CONTACT ===== -->
-    <section id="contact" aria-labelledby="contact-heading" data-section="contact">
-      <h2 id="contact-heading">Contact</h2>
-      <form id="contact-form"
-            action="https://formspree.io/f/mrbkzqnd"
-            method="POST"
-            aria-label="Contact Form"
-            autocomplete="on">
-        <label>
-          <span class="visually-hidden">Your Name</span>
-          <input type="text" name="name" placeholder="Your Name" required>
-        </label>
-        <label>
-          <span class="visually-hidden">Your Email</span>
-          <input type="email" name="email" placeholder="Your Email" required>
-        </label>
-        <label>
-          <span class="visually-hidden">Your Message</span>
-          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        </label>
+    <!-- CERTIFICATES -->
+    <section id="certificates" class="fade-section" aria-labelledby="certificates-title">
+      <h2 id="certificates-title">Certificates</h2>
+      <ul class="certificates-list">
+        <li>🐍 Introduction to Python – IBM (Mar 2024)</li>
+        <li>🛡️ Cybersecurity Full Course – Simplilearn</li>
+        <li>🎓 Python 3.4.3 – IIT Bombay Spoken Tutorial</li>
+        <li>🗃️ Database with SQL – CS50</li>
+        <li>📊 Data Science Foundation – Great Learning Academy</li>
+        <li>🤖 Machine Learning with R – Simplilearn (Apr 2025)</li>
+        <li>🧮 RDBMS PostgreSQL Training – Edu Pyramids</li>
+      </ul>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="fade-section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <form id="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="email" name="email" placeholder="Your Email" required>
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
         <button type="submit" class="btn btn-primary">🚀 Send Message</button>
       </form>
+    </section>
 
-      <div class="contact-info">
-        <p>📧 <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
-        <p>📱 <a href="tel:+919840329368">+91&nbsp;98403&nbsp;29368</a></p>
-        <p>🔗 <a href="https://www.linkedin.com/in/syed-sameer-dev"
-               target="_blank" rel="noopener noreferrer">LinkedIn: @syed-sameer-dev</a></p>
-        <p>💻 <a href="https://github.com/404NotYourCode"
-               target="_blank" rel="noopener noreferrer">GitHub: @404NotYourCode</a></p>
+    <!-- GAME -->
+    <section id="game" class="fade-section" aria-labelledby="game-title">
+      <h2 id="game-title">🎮 Rock Paper Scissors</h2>
+      <div id="rps-game">
+        <p>Choose your move:</p>
+        <button onclick="playRPS('rock')">🪨 Rock</button>
+        <button onclick="playRPS('paper')">📄 Paper</button>
+        <button onclick="playRPS('scissors')">✂️ Scissors</button>
+        <p id="rps-result"></p>
       </div>
     </section>
+
   </main>
 
-  <!-- ===== FOOTER ===== -->
+  <!-- FOOTER -->
   <footer role="contentinfo">
-    <p>&copy; <time datetime="2025">2025</time>
-      <strong>Syed Sameer</strong> • Built with ❤️ coffee ☕ and clean code.
-    </p>
-  </footer>
-
-  <!-- Scroll to Top -->
-  <button id="scrollTopBtn" title="Scroll to top" type="button"
-          ar
+    <p>&copy; 2025 <strong
