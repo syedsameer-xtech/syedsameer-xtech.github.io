@@ -3,117 +3,97 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Sameer | Cybersecurity Engineer & Web Developer</title>
-
+  <title>Syed Sameer | Portfolio</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- GSAP -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/Draggable.min.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- STARFIELD BACKGROUND -->
-  <canvas id="star-bg" aria-hidden="true"></canvas>
-  <div class="cursor" aria-hidden="true"></div>
-
-  <!-- HERO SECTION -->
-  <header class="hero" id="top">
-    <nav class="navbar">
-      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false">☰</button>
-      <ul id="primary-menu" class="nav-list">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#certificates">Certificates</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li><a href="#game">Game</a></li>
-      </ul>
-    </nav>
-
-    <div class="hero-content">
-      <h1 id="typing-text">Syed Sameer</h1>
-      <p class="subheading-box">Cybersecurity Engineer • Web Developer • Creative Coder</p>
-      <div class="hero-buttons">
-        <a href="#" class="btn btn-primary">📄 Download CV</a>
-        <a href="#contact" class="btn btn-outline">✉️ Contact</a>
-      </div>
-    </div>
+  <!-- HERO -->
+  <header class="hero">
+    <h1 id="typing-text">Syed Sameer</h1>
+    <p class="subheading-box">Cybersecurity Engineer • Web Developer • Creative Coder</p>
   </header>
 
-  <main>
-    <section id="about" class="fade-section">
-      <h2>About Me</h2>
-      <p>Hi, I’m <strong>Syed Sameer</strong> — a Cybersecurity Engineer, Web Developer, and Creative Coder. I specialize in building immersive, secure digital experiences.</p>
-    </section>
+  <!-- ABOUT -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>
+      Hi, I’m <strong>Syed Sameer</strong> — a cybersecurity engineer, web developer, and creative coder. 
+      I create secure, interactive digital experiences.
+    </p>
+  </section>
 
-    <section id="skills" class="fade-section">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-        <li>Python</li>
-        <li>JavaScript</li>
-        <li>HTML & CSS</li>
-        <li>Flask</li>
-        <li>Machine Learning</li>
-        <li>Cybersecurity</li>
-        <li>Linux</li>
-        <li>Git / GitHub</li>
-        <li>SQL</li>
-      </ul>
-    </section>
+  <!-- SKILLS -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <ul class="skills-list">
+      <li>Python</li>
+      <li>JavaScript</li>
+      <li>HTML & CSS</li>
+      <li>Flask</li>
+      <li>Machine Learning</li>
+      <li>Cybersecurity</li>
+    </ul>
+  </section>
 
-    <section id="projects" class="fade-section">
-      <h2>Projects</h2>
-      <div class="projects-grid">
-        <article class="project-card draggable">
-          <h3>Cryptography Algorithms</h3>
-          <a href="#">View on GitHub</a>
-        </article>
-        <article class="project-card draggable">
-          <h3>Phishing URL Detector</h3>
-          <a href="#">View on GitHub</a>
-        </article>
-        <article class="project-card draggable">
-          <h3>Simple Network Sniffer</h3>
-          <a href="#">View on GitHub</a>
-        </article>
-      </div>
-    </section>
+  <!-- PROJECTS -->
+  <section id="projects">
+    <h2>Projects</h2>
+    <ul class="projects-list">
+      <li>Cryptography Algorithms</li>
+      <li>Phishing URL Detector</li>
+      <li>Simple Network Sniffer</li>
+      <li>User Registration System Security</li>
+      <li>Guide to Avoiding Phishing Scams</li>
+    </ul>
+  </section>
 
-    <section id="certificates" class="fade-section">
-      <h2>Certificates</h2>
-      <ul class="certificates-list">
-        <li>Introduction to Python – IBM</li>
-        <li>Cybersecurity Full Course – Simplilearn</li>
-        <li>Python 3.4.3 – IIT Bombay</li>
-      </ul>
-    </section>
+  <!-- CERTIFICATES -->
+  <section id="certificates">
+    <h2>Certificates</h2>
+    <ul class="certificates-list">
+      <li>Introduction to Python – IBM</li>
+      <li>Cybersecurity Full Course – Simplilearn</li>
+      <li>Python 3.4.3 – IIT Bombay</li>
+      <li>Database with SQL – CS50</li>
+      <li>Machine Learning with R – Simplilearn</li>
+    </ul>
+  </section>
 
-    <section id="contact" class="fade-section">
-      <h2>Contact</h2>
-      <form id="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required>
-        <input type="email" name="email" placeholder="Your Email" required>
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-    </section>
+  <!-- ROCK-PAPER-SCISSORS GAME -->
+  <section id="game">
+    <h2>Rock Paper Scissors</h2>
+    <div id="rps-game">
+      <p>Choose your move:</p>
+      <button onclick="playRPS('rock')">Rock</button>
+      <button onclick="playRPS('paper')">Paper</button>
+      <button onclick="playRPS('scissors')">Scissors</button>
+      <p id="rps-result"></p>
+    </div>
+  </section>
 
-    <section id="game" class="fade-section">
-      <h2>Rock Paper Scissors</h2>
-      <div id="rps-game">
-        <button onclick="playRPS('rock')">🪨 Rock</button>
-        <button onclick="playRPS('paper')">📄 Paper</button>
-        <button onclick="playRPS('scissors')">✂️ Scissors</button>
-        <p id="rps-result"></p>
-      </div>
-    </section>
-  </main>
+  <!-- CONTACT -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+  </section>
 
+  <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 Syed Sameer. All Rights Reserved.</p>
+    <p>Email: <a href="mailto:syed@example.com">syed@example.com</a> | 
+       <a href="https://linkedin.com/in/syed" target="_blank">LinkedIn</a> | 
+       <a href="https://github.com/syedsameer-xtech" target="_blank">GitHub</a>
+    </p>
+    <p>&copy; 2025 Syed Sameer</p>
   </footer>
+
 </body>
 </html>
