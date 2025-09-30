@@ -1,195 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer | Cybersecurity Engineer</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
-</head>
 <body>
+  <!-- Decorative Background -->
+  <canvas id="star-bg" aria-hidden="true"></canvas>
+  <div class="cursor" aria-hidden="true"></div>
 
-  <!-- ================= HEADER / HERO ================= -->
-  <header class="hero">
-    <div class="hero-top">
-      <img src="Logo_1.png" alt="Syed Logo" class="logo" />
-      <nav>
-        <ul>
-          <li><a href="#projects">Work</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
+  <!-- ===== HERO / NAV ===== -->
+  <header class="hero" id="top" role="banner">
+    <nav class="navbar" role="navigation" aria-label="Main">
+      <button class="nav-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <span class="visually-hidden">Toggle navigation</span>☰
+      </button>
+      <ul id="primary-menu" class="nav-list">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
 
-    <div class="hero-content">
-      <h1>SYED SAMEER</h1>
-      <p class="tagline">Cybersecurity Engineer • Web Developer • Creative Coder</p>
-      <p class="intro">Securing systems, building tools, and crafting the future of cybersecurity.</p>
+    <div class="hero-content" data-animate="hero">
+      <picture>
+        <source srcset="Logo_1.webp" type="image/webp">
+        <img src="Logo_1.png" alt="Syed Sameer Logo" class="logo"
+             loading="lazy" width="140" height="140">
+      </picture>
+
+      <div class="typing-container">
+        <h1 id="typing-text" aria-label="Syed Sameer">Syed Sameer</h1>
+      </div>
+
+      <p class="subheading-box">
+        🚀 <span>Cybersecurity Engineer</span> • 🌐 <span>Web Developer</span> • 🎨 <span>Creative Coder</span>
+      </p>
+
       <div class="hero-buttons">
-        <a href="Syed_Sameer_Resume.pdf" target="_blank">📄 Download Resume</a>
-        <a href="https://github.com/syedsameer-xtech" target="_blank">💻 Visit GitHub</a>
+        <a href="Syed_Sameer_Resume.pdf"
+           class="btn"
+           download
+           aria-label="Download Syed Sameer Resume PDF">📄 Download CV</a>
+        <a href="#contact"
+           class="btn btn-outline"
+           aria-label="Jump to Contact Section">✉️ Contact</a>
       </div>
     </div>
   </header>
 
-  <!-- ================= PROJECTS ================= -->
-  <section id="projects">
-    <h2>Featured Projects</h2>
-    <div class="projects-grid">
+  <main role="main">
+    <!-- ===== ABOUT ===== -->
+    <section id="about" aria-labelledby="about-heading" data-section="about">
+      <h2 id="about-heading">About Me</h2>
+      <p>
+        Hi, I’m <strong>Syed Sameer</strong> — a passionate learner, creative thinker,
+        and lifelong technologist. I explore
+        <em>cybersecurity</em>, <em>web development</em>, and <em>machine learning</em>,
+        building meaningful projects and sharpening my skills every day.
+      </p>
+    </section>
 
-      <!-- Project 1 -->
-      <div class="project-card">
-        <img src="phishing-detector.png" alt="Phishing Detector" />
-        <h3>Phishing URL Detector</h3>
-        <p>Detects malicious URLs using ML and Flask API.</p>
-        <details>
-          <summary>Case Study</summary>
-          <p><strong>Problem:</strong> Users fall for phishing links.<br>
-             <strong>Solution:</strong> Trained ML model with feature extraction.<br>
-             <strong>Result:</strong> 95% accuracy, deployed with UI.</p>
-        </details>
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" aria-labelledby="skills-heading" data-section="skills">
+      <h2 id="skills-heading">Skills</h2>
+      <ul class="skills-list" data-animate="skills">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>Python</li><li>Flask</li>
+        <li>Machine Learning</li><li>Cybersecurity</li><li>Git</li><li>SQL</li><li>Linux</li>
+      </ul>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" aria-labelledby="projects-heading" data-section="projects">
+      <h2 id="projects-heading">Projects</h2>
+      <div class="projects-grid">
+        <article class="project-card" data-animate="project">
+          <h3>🔍 Simple Network Sniffer</h3>
+          <p>Python-based tool for capturing and analyzing network traffic.</p>
+          <a href="https://github.com/august04-oss/codealpha_tasks-01"
+             target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </article>
+
+        <article class="project-card" data-animate="project">
+          <h3>🛡️ Phishing Detection Tool <em>(In Progress)</em></h3>
+          <p>ML-powered tool to detect and block phishing URLs in real time.</p>
+          <a href="https://github.com/august04-oss/phishing-url-detector"
+             target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </article>
+
+        <article class="project-card" data-animate="project">
+          <h3>🔑 Password Cracking & Hashing</h3>
+          <p>Experiments with secure hashing algorithms and brute-force strategies.</p>
+          <a href="https://github.com/august04-oss/password-cracking-and-hashing"
+             target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        </article>
       </div>
+    </section>
 
-      <!-- Project 2 -->
-      <div class="project-card">
-        <img src="firewall.png" alt="Firewall Automation" />
-        <h3>Firewall Automation Script</h3>
-        <p>Automates firewall rules to block malicious IPs.</p>
-        <details>
-          <summary>Case Study</summary>
-          <p><strong>Problem:</strong> Manual updates slow down response.<br>
-             <strong>Solution:</strong> Python script integrating threat feeds.<br>
-             <strong>Result:</strong> 60% faster mitigation process.</p>
-        </details>
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" aria-labelledby="contact-heading" data-section="contact">
+      <h2 id="contact-heading">Contact</h2>
+      <form id="contact-form"
+            action="https://formspree.io/f/mrbkzqnd"
+            method="POST"
+            aria-label="Contact Form"
+            autocomplete="on">
+        <label>
+          <span class="visually-hidden">Your Name</span>
+          <input type="text" name="name" placeholder="Your Name" required>
+        </label>
+        <label>
+          <span class="visually-hidden">Your Email</span>
+          <input type="email" name="email" placeholder="Your Email" required>
+        </label>
+        <label>
+          <span class="visually-hidden">Your Message</span>
+          <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        </label>
+        <button type="submit" class="btn btn-primary">🚀 Send Message</button>
+      </form>
+
+      <div class="contact-info">
+        <p>📧 <a href="mailto:syedsameer.sbecse@gmail.com">syedsameer.sbecse@gmail.com</a></p>
+        <p>📱 <a href="tel:+919840329368">+91&nbsp;98403&nbsp;29368</a></p>
+        <p>🔗 <a href="https://www.linkedin.com/in/syed-sameer-dev"
+               target="_blank" rel="noopener noreferrer">LinkedIn: @syed-sameer-dev</a></p>
+        <p>💻 <a href="https://github.com/404NotYourCode"
+               target="_blank" rel="noopener noreferrer">GitHub: @404NotYourCode</a></p>
       </div>
+    </section>
+  </main>
 
-      <!-- Project 3 -->
-      <div class="project-card">
-        <img src="dashboard.png" alt="Security Dashboard" />
-        <h3>Security Analytics Dashboard</h3>
-        <p>Built with React + Node.js for real-time monitoring.</p>
-        <details>
-          <summary>Case Study</summary>
-          <p><strong>Problem:</strong> No centralized view of system health.<br>
-             <strong>Solution:</strong> Full-stack dashboard with data viz.<br>
-             <strong>Result:</strong> 30% improvement in threat detection speed.</p>
-        </details>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= SKILLS ================= -->
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-
-      <div class="skill-box">
-        <h3>Cybersecurity</h3>
-        <ul>
-          <li>Penetration Testing</li>
-          <li>Threat Detection & Analysis</li>
-          <li>Security Auditing</li>
-        </ul>
-      </div>
-
-      <div class="skill-box">
-        <h3>Development</h3>
-        <ul>
-          <li>Python, Flask, Django</li>
-          <li>JavaScript, React</li>
-          <li>Database Security (SQL, MongoDB)</li>
-        </ul>
-      </div>
-
-      <div class="skill-box">
-        <h3>Tools & Certifications</h3>
-        <ul>
-          <li>Kali Linux, Wireshark</li>
-          <li>Burp Suite, Nmap</li>
-          <li>IIT Bombay & CS50 Certified</li>
-        </ul>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= EXPERIENCE ================= -->
-  <section id="experience">
-    <h2>Experience & Achievements</h2>
-    <div class="timeline">
-
-      <div class="timeline-item">
-        <h3>INSPIRE AI – Campus Ambassador</h3>
-        <p>Organized workshops, trained 200+ students, and promoted AI literacy.</p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Cybersecurity Tools Development</h3>
-        <p>Built phishing detection tools used by 100+ students and researchers.</p>
-      </div>
-
-      <div class="timeline-item">
-        <h3>Hackathon Wins</h3>
-        <p>Secured top positions in 3+ national hackathons focusing on security.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ================= ABOUT ================= -->
-  <section id="about">
-    <h2>About Me</h2>
-    <div class="about-container">
-      <img src="portrait.png" alt="Syed Portrait" class="about-image" />
-      <div class="about-text">
-        <p>I’m a Cybersecurity Engineer driven by curiosity and precision. I build secure systems, detect threats, and design immersive web experiences. Every project reflects my growth, grit, and hunger to learn more.</p>
-        <p><strong>Impact:</strong> Built phishing tools used by 100+ students. Campus Ambassador for INSPIRE AI. Certified by IIT Bombay and CS50.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================= TESTIMONIALS ================= -->
-  <section id="testimonials">
-    <h2>What People Say</h2>
-    <div class="testimonial-card">
-      <p>"Sameer is a sharp problem-solver. His phishing tool became a key teaching resource."</p>
-      <h4>- Prof. XYZ, IIT Bombay</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"One of the most dedicated engineers I’ve worked with. He blends creativity with security."</p>
-      <h4>- Hackathon Teammate</h4>
-    </div>
-  </section>
-
-  <!-- ================= CONTACT ================= -->
-  <section id="contact">
-    <h2>Let’s Work Together</h2>
-    <form id="contact-form">
-      <input type="text" placeholder="Your Name" required />
-      <input type="email" placeholder="Your Email" required />
-      <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">🚀 Send Message</button>
-    </form>
-
-    <div class="social-links">
-      <a href="https://linkedin.com/in/syedsameer" target="_blank">🔗 LinkedIn</a>
-      <a href="https://github.com/syedsameer-xtech" target="_blank">💻 GitHub</a>
-      <a href="mailto:syedsameer@example.com">✉️ Email</a>
-    </div>
-  </section>
-
-  <!-- ================= FOOTER ================= -->
-  <footer>
-    <p>© 2025 Syed Sameer. Built with passion and precision.</p>
-    <p><a href="#top">⬆ Back to Top</a></p>
-    <p>Made with ❤️ using HTML, CSS, and JavaScript</p>
+  <!-- ===== FOOTER ===== -->
+  <footer role="contentinfo">
+    <p>&copy; <time datetime="2025">2025</time>
+      <strong>Syed Sameer</strong> • Built with ❤️ coffee ☕ and clean code.
+    </p>
   </footer>
 
-  <script src="script.js"></script>
-</body>
-</html>
+  <!-- Scroll to Top -->
+  <button id="scrollTopBtn" title="Scroll to top" type="button"
+          ar
