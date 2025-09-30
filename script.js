@@ -1,6 +1,6 @@
 // Typing effect
 const typing = document.querySelector('.typing');
-const phrases = ['Cybersecurity Engineer', 'Web Developer', 'Creative Coder'];
+const phrases = ['Web Developer', 'Cybersecurity Engineer', 'Creative Coder'];
 let i = 0, j = 0, current = '', isDeleting = false;
 
 function type() {
@@ -28,7 +28,7 @@ const scrollTopBtn = document.getElementById('scrollTop');
 scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
 
 // GSAP entrance animations
-gsap.from('header', { duration: 1.5, y: -50, opacity: 0, ease: 'power2.out' });
+gsap.from('.hero', { duration: 1.5, y: -50, opacity: 0, ease: 'power2.out' });
 gsap.from('nav ul li', {
   duration: 1,
   y: -20,
@@ -36,17 +36,18 @@ gsap.from('nav ul li', {
   stagger: 0.2,
   ease: 'power2.out'
 });
-gsap.from('section', {
-  scrollTrigger: {
-    trigger: 'section',
-    start: 'top 80%',
-    toggleActions: 'play none none none'
-  },
-  duration: 1,
-  y: 30,
-  opacity: 0,
-  stagger: 0.3,
-  ease: 'power2.out'
+gsap.utils.toArray('section').forEach(section => {
+  gsap.from(section, {
+    scrollTrigger: {
+      trigger: section,
+      start: 'top 80%',
+      toggleActions: 'play none none none'
+    },
+    duration: 1,
+    y: 30,
+    opacity: 0,
+    ease: 'power2.out'
+  });
 });
 
 // GSAP draggable logo
@@ -78,6 +79,7 @@ function play(userChoice) {
   ) {
     result = 'You Win!';
     wins++;
+    showWinPop();
   } else {
     result = 'You Lose!';
     losses++;
@@ -96,3 +98,23 @@ function updateScoreboard() {
     <p>Draws: ${draws}</p>
   `;
 }
+
+function showWinPop() {
+  gsap.fromTo("#win-pop-left", { x: -100, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 });
+  gsap.fromTo("#win-pop-right", { x: 100, opacity: 0 }, { x: 0, opacity: 1, duration: 0.5 });
+  setTimeout(() => {
+    gsap.to("#win-pop-left", { opacity: 0 });
+    gsap.to("#win-pop-right", { opacity: 0 });
+  }, 1000);
+}
+
+// Contact & Feedback Form Submission (placeholder)
+document.getElementById('contact-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Message sent successfully!');
+});
+
+document.getElementById('feedback-form').addEventListener('submit', e => {
+  e.preventDefault();
+  alert('Thanks for your feedback!');
+});
