@@ -24,8 +24,9 @@ function type() {
 type();
 
 // Scroll to top
-const scrollTopBtn = document.getElementById('scrollTop');
-scrollTopBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+document.getElementById('scrollTop').onclick = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
 
 // GSAP entrance animations
 gsap.from('.hero', { duration: 1.5, y: -50, opacity: 0, ease: 'power2.out' });
@@ -50,7 +51,7 @@ gsap.utils.toArray('section').forEach(section => {
   });
 });
 
-// GSAP draggable logo
+// Draggable logo
 Draggable.create('.logo', {
   type: 'x,y',
   edgeResistance: 0.65,
@@ -108,7 +109,7 @@ function showWinPop() {
   }, 1000);
 }
 
-// Contact & Feedback Form Submission (placeholder)
+// Contact & Feedback Form Alerts
 document.getElementById('contact-form').addEventListener('submit', e => {
   e.preventDefault();
   alert('Message sent successfully!');
