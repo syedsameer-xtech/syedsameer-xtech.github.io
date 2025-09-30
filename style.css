@@ -1,97 +1,48 @@
-/* ===================== RESET ===================== */
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* RESET */
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'Poppins', sans-serif; background:#121212; color:#e5e5e5; line-height:1.6; }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #000;
-  color: #ffd700;
-  overflow-x: hidden;
-  line-height: 1.7;
-  perspective: 1000px;
-  padding-top: 80px; /* Extra space at top */
-}
+/* HERO */
+.hero { text-align:center; padding:6rem 2rem; }
+#typing-text { font-size:3rem; margin-bottom:1rem; }
+.subheading-box { font-size:1.2rem; color:#ccc; }
 
-a { color: #ffd700; text-decoration: none; transition: 0.3s; }
-a:hover { color: #fff; text-shadow: 0 0 8px #ffd700; }
+/* SECTIONS */
+section { padding:4rem 2rem; max-width:900px; margin:auto; }
+h2 { font-size:2rem; text-align:center; margin-bottom:1.5rem; color:#fff; }
+ul { list-style:none; padding-left:0; }
+ul li { background:#1e1e1e; margin:0.5rem 0; padding:0.8rem 1rem; border-radius:8px; box-shadow:0 3px 8px rgba(0,0,0,0.5); }
 
-/* ===================== CURSOR ===================== */
-.cursor {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  border: 2px solid #ffd700;
-  position: fixed;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, border-color 0.25s;
-  z-index: 9999;
-}
-.cursor.active { transform: translate(-50%, -50%) scale(1.8); border-color: #fff; }
+/* SKILLS */
+.skills-list { display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; }
+.skills-list li { flex:0 0 auto; }
 
-/* ===================== NAVBAR ===================== */
-.navbar {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  display: flex; justify-content: flex-end; align-items: center;
-  background: rgba(0,0,0,0.75);
-  backdrop-filter: blur(8px);
-  padding: 1rem 2rem;
-  z-index: 1000;
-}
-.navbar.scrolled { background: rgba(0,0,0,0.95); }
+/* PROJECTS */
+.projects-list li { }
 
-.nav-list { list-style: none; display: flex; gap: 2rem; }
-.nav-list li a::after { content:""; display:block; height:2px; background:#ffd700; width:0; transition:0.3s; }
-.nav-list li a:hover::after { width:100%; }
+/* CERTIFICATES */
+.certificates-list li { }
 
-/* ===================== HERO ===================== */
-.hero { text-align: center; min-height: 100vh; display: flex; flex-direction: column; justify-content:center; padding: 6rem 2rem; }
-#typing-text { font-size: 3rem; font-weight: 700; color: #ffd700; text-shadow: 0 0 10px #ffd700; margin-bottom:1rem; }
-.subheading-box { font-size:1.2rem; color:#fff; margin-bottom:2rem; }
-.hero-buttons .btn { margin:0.5rem; border-radius: 30px; padding:1rem 2rem; font-weight:600; transition:0.3s; }
-.btn-primary { background:#ffd700; color:#000; }
-.btn-outline { border:2px solid #ffd700; color:#ffd700; background:transparent; }
-.btn-primary:hover, .btn-outline:hover { background:#fff; color:#000; transform:scale(1.05); }
+/* ROCK-PAPER-SCISSORS GAME */
+#rps-game { text-align:center; margin-top:1rem; }
+#rps-game button { margin:0.5rem; padding:0.7rem 1.5rem; border:none; border-radius:6px; background:#e5e5e5; color:#121212; cursor:pointer; }
+#rps-game button:hover { background:#ccc; }
+#rps-result { margin-top:0.5rem; font-weight:bold; }
 
-/* ===================== SECTIONS ===================== */
-section { padding:6rem 2rem; max-width: 1000px; margin:auto; text-align:center; }
-h2 { font-size:2rem; color:#ffd700; margin-bottom:2rem; position:relative; }
-h2::after { content:""; display:block; height:3px; width:60px; margin:0.5rem auto; background:#ffd700; border-radius:2px; }
-.fade-section { opacity:0; transform: translateY(30px); }
+/* CONTACT FORM */
+form { display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:auto; }
+input, textarea { padding:0.8rem; border-radius:6px; border:none; background:#1e1e1e; color:#e5e5e5; }
+input:focus, textarea:focus { outline:2px solid #ccc; }
+button { padding:0.8rem; border-radius:6px; border:none; background:#e5e5e5; color:#121212; cursor:pointer; }
+button:hover { background:#ccc; }
 
-/* ===================== SKILLS ===================== */
-.skills-list { display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; list-style:none; }
-.skills-list li { padding:0.8rem 1.5rem; border:2px solid #ffd700; border-radius:30px; transition:0.3s; }
-.skills-list li:hover { background:#ffd700; color:#000; transform:scale(1.05); }
+/* FOOTER */
+footer { text-align:center; padding:2rem; color:#ccc; font-size:0.9rem; }
+footer a { color:#e5e5e5; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
 
-/* ===================== PROJECTS ===================== */
-.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
-.project-card { padding:1.5rem; border:2px solid #ffd700; border-radius:15px; background:rgba(0,0,0,0.7); transition:0.3s; }
-.project-card:hover { transform:translateY(-5px); box-shadow:0 0 15px #ffd700; }
-
-/* ===================== CONTACT ===================== */
-form { display:flex; flex-direction:column; gap:1rem; max-width:520px; margin:2rem auto; }
-form input, form textarea { padding:1rem; border-radius:14px; border:none; background:rgba(255,255,255,0.05); color:#fff; }
-form input:focus, form textarea:focus { background:rgba(255,255,255,0.15); box-shadow:0 0 10px #ffd700; }
-form button { padding:1rem; border-radius:30px; font-weight:bold; background:#ffd700; color:#000; }
-form button:hover { background:#fff; color:#000; }
-
-/* ===================== GAME ===================== */
-#rps-game button { padding:0.7rem 1.2rem; margin:0.5rem; border-radius:20px; background:#ffd700; color:#000; font-weight:bold; transition:0.3s; }
-#rps-game button:hover { background:#fff; transform:scale(1.1); }
-
-/* ===================== FOOTER ===================== */
-footer { text-align:center; padding:2rem; background:#111; color:#ccc; border-top:2px solid #ffd700; }
-
-/* ===================== RESPONSIVE ===================== */
-@media (max-width:768px){
-  .nav-list{display:none; flex-direction:column; background:rgba(0,0,0,0.95); position:fixed; top:0; right:0; height:100vh; width:70%; padding-top:5rem; gap:2rem; z-index:999;}
-  .nav-list.active{display:flex;}
-  .nav-toggle{display:block; position:fixed; top:1rem; right:2rem;}
+/* RESPONSIVE */
+@media(max-width:600px){
+  #typing-text { font-size:2.2rem; }
+  .skills-list { flex-direction:column; align-items:center; }
 }
