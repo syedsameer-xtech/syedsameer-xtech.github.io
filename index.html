@@ -10,17 +10,20 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Draggable.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/DrawSVGPlugin.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/MotionPathPlugin.min.js"></script>
 </head>
 <body>
-  <header>
+  <!-- Hero Section -->
+  <header class="hero">
     <img src="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Logo_1.png" alt="Logo" class="logo" />
-    <h1 class="animate-text">Syed Sameer</h1>
-    <p class="typing">Cybersecurity Engineer | Web Developer | Creative Coder</p>
-    <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf" target="_blank" class="resume-btn">Download Resume</a>
+    <h1 class="animate-text">SYED SAMEER</h1>
+    <p class="typing">Web Developer | Cybersecurity Engineer | Creative Coder</p>
+    <div class="hero-buttons">
+      <a href="https://github.com/404NotYourCode" target="_blank" class="github-btn">Visit GitHub</a>
+      <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf" target="_blank" class="resume-btn">Download Resume</a>
+    </div>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <ul>
       <li><a href="#about">About</a></li>
@@ -32,11 +35,13 @@
     </ul>
   </nav>
 
+  <!-- About Me -->
   <section id="about">
     <h2>About Me</h2>
-    <p>I’m a 3rd year Computer Science & Engineering student specializing in Cybersecurity. I build secure systems, deploy ML models, and design bold, interactive web experiences.</p>
+    <p>I’m a Cybersecurity Engineer with a passion for learning, building, and improving. I specialize in phishing detection, secure systems, and interactive web experiences. Every project I create reflects my growth, curiosity, and commitment to excellence.</p>
   </section>
 
+  <!-- Skills -->
   <section id="skills">
     <h2>Skills</h2>
     <ul>
@@ -47,6 +52,7 @@
     </ul>
   </section>
 
+  <!-- Projects -->
   <section id="projects">
     <h2>Projects</h2>
     <ul>
@@ -58,31 +64,53 @@
     </ul>
   </section>
 
+  <!-- Certifications -->
   <section id="certifications">
     <h2>Certifications</h2>
-    <p>Over 25+ certifications in Cybersecurity, Cloud, RPA, Programming, Hindi Proficiency, and Leadership. Full list available on request or embedded gallery.</p>
+    <ul>
+      <li>Cybersecurity Foundations — LinkedIn Learning</li>
+      <li>Cybersecurity Full Course — Simplilearn</li>
+      <li>Python 3.4.3 — IIT Bombay</li>
+      <li>Databases with SQL — CS50</li>
+      <li>Electric Vehicle Service Technician — ASDC</li>
+    </ul>
   </section>
 
+  <!-- Game -->
   <section id="game">
-  <h2>Rock Paper Scissors</h2>
-  <div class="game-container">
-    <button onclick="play('rock')">🪨 Rock</button>
-    <button onclick="play('paper')">📄 Paper</button>
-    <button onclick="play('scissors')">✂️ Scissors</button>
-    <p id="game-result"></p>
-    <div id="scoreboard" class="scoreboard"></div>
-  </div>
-</section>
-
-
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: syedsameer.sbecse@gmail.com</p>
-    <p>Phone: +91 98403 29368</p>
-    <p>LinkedIn: <a href="https://www.linkedin.com/in/syed-sameer-dev">syed-sameer-dev</a></p>
+    <h2>Rock Paper Scissors</h2>
+    <div class="game-container">
+      <button onclick="play('rock')">🪨 Rock</button>
+      <button onclick="play('paper')">📄 Paper</button>
+      <button onclick="play('scissors')">✂️ Scissors</button>
+      <p id="game-result"></p>
+      <div id="scoreboard"></div>
+      <div id="win-pop-left" class="pop">🎉</div>
+      <div id="win-pop-right" class="pop">🎉</div>
+    </div>
   </section>
 
+  <!-- Contact & Feedback -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <h3>Feedback</h3>
+    <form id="feedback-form">
+      <textarea placeholder="Share your thoughts..." required></textarea>
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </section>
+
+  <!-- Scroll to Top -->
   <button id="scrollTop">↑</button>
+
+  <!-- Scripts -->
   <script src="script.js"></script>
 </body>
 </html>
