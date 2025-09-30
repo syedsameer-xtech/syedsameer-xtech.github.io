@@ -1,85 +1,418 @@
-/* ================= HEADINGS & TEXT ================= */
-section h2 {
-  font-size: clamp(1.8rem, 5vw, 2.2rem);
-  color: #FFD700;
-  margin-bottom: 1.5rem;
+/* ===================== RESET ===================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', 'Inter', sans-serif;
+  background: #000;
+  color: #f5f5f5;
+  line-height: 1.7;
+  overflow-x: hidden;
+  perspective: 1000px;
+}
+
+/* ===================== LINKS ===================== */
+a {
+  color: #00ffcc;
+  text-decoration: none;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+a:hover {
+  color: #ffcc00;
+  text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+}
+
+/* ===================== CUSTOM CURSOR ===================== */
+.cursor {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid #00ffcc;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 0.15s ease-out, border-color 0.25s, box-shadow 0.25s;
+  z-index: 9999;
+}
+
+.cursor.active {
+  transform: translate(-50%, -50%) scale(1.8);
+  border-color: #ffcc00;
+  box-shadow: 0 0 20px #ffcc00, 0 0 30px rgba(255,204,0,0.5);
+}
+
+/* ===================== NAVBAR ===================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 255, 204, 0.2);
+  z-index: 1000;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar.scrolled {
+  background: rgba(0, 0, 0, 0.9);
+  border-color: rgba(255, 204, 0, 0.3);
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-list li a {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #fff;
+  position: relative;
+}
+
+.nav-list li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #00ffcc, #ffcc00);
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-list li a:hover::after {
+  width: 100%;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+/* ===================== HERO ===================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  text-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
-  transition: all 0.3s ease;
+  padding: 6rem 2rem 2rem;
+  position: relative;
+  z-index: 1;
 }
 
-/* Add subtle hover glow to section headings */
-section h2:hover {
-  text-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+.logo {
+  width: 150px;
+  border-radius: 50%;
+  border: 3px solid #00ffcc;
+  box-shadow: 0 0 25px rgba(0, 255, 204, 0.7);
+  animation: float 3s ease-in-out infinite;
+  transform-style: preserve-3d;
 }
 
-/* ================= HERO TYPING EFFECT ================= */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotateY(0deg); }
+  50% { transform: translateY(-14px) rotateY(15deg); }
+}
+
 #typing-text {
-  animation: glow-text 1.5s ease-in-out infinite alternate;
+  font-size: 3.2rem;
+  font-weight: 700;
+  color: #00ffcc;
+  margin: 1.2rem 0;
+  letter-spacing: 1.2px;
+  text-shadow: 0 0 15px rgba(0, 255, 204, 0.6);
 }
 
-@keyframes glow-text {
-  from { text-shadow: 0 0 10px #FFD700; }
-  to { text-shadow: 0 0 25px #FFD700, 0 0 40px #FACC15; }
+.subheading-box {
+  font-size: 1.3rem;
+  color: #bbb;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.3);
 }
 
-/* ================= PROJECT CARD HOVER ================= */
-.project-card:hover {
-  border-left-color: #FACC15;
-  box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
-  transform: translateY(-6px) scale(1.02);
+.hero-buttons {
+  margin-top: 1.2rem;
 }
 
-/* ================= SKILLS HOVER ================= */
+.btn {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  margin: 0.6rem;
+  transform-style: preserve-3d;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #00ffcc, #0099ff);
+  color: #000;
+  box-shadow: 0 0 15px rgba(0,255,204,0.5);
+}
+
+.btn-outline {
+  border: 2px solid #00ffcc;
+  color: #00ffcc;
+  background: transparent;
+}
+
+.btn:hover,
+.btn-outline:hover {
+  background: linear-gradient(90deg, #ffcc00, #ff8800);
+  color: #000;
+  transform: scale(1.08) rotateX(5deg);
+  box-shadow: 0 0 20px rgba(255, 204, 0, 0.7);
+}
+
+/* ===================== SECTIONS ===================== */
+section {
+  padding: 6rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+  perspective: 1000px;
+}
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #00ffcc;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 0 0 8px rgba(0,255,204,0.5);
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  margin: 0.5rem auto 0;
+  background: linear-gradient(90deg, #00ffcc, #ffcc00);
+  border-radius: 2px;
+}
+
+.fade-section {
+  opacity: 0;
+  transform: translateY(30px) rotateX(5deg);
+  transition: all 0.6s ease-out;
+}
+
+/* ===================== SKILLS ===================== */
+.skills-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem 1.5rem;
+}
+
 .skills-list li {
-  transition: transform 0.3s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #00ffcc;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.55);
+  color: #00ffcc;
+  font-weight: 500;
+  transition: all 0.35s ease;
 }
 
 .skills-list li:hover {
-  background: #FFD700;
+  background: #00ffcc;
   color: #000;
-  transform: scale(1.1);
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+  transform: translateY(-4px) scale(1.08) rotateX(3deg);
+  box-shadow: 0 0 15px rgba(0, 255, 204, 0.7);
 }
 
-/* ================= SCROLL-TRIGGERED ANIMATIONS ================= */
-[data-animate="hero"],
-[data-animate="skills"],
-[data-animate="project"] {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+/* ===================== PROJECTS ===================== */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
 }
 
-/* GSAP will toggle .visible to animate in */
-.visible {
-  opacity: 1 !important;
-  transform: translateY(0) !important;
+.project-card {
+  padding: 1.6rem;
+  border: 2px solid #00ffcc;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.65);
+  transition: all 0.4s ease;
+  transform-style: preserve-3d;
 }
 
-/* ================= STAR-BACKGROUND DOTS ================= */
-#star-bg {
-  background: radial-gradient(ellipse at top, #0a0a0a, #000);
-  position: fixed;
-  inset: 0;
-  z-index: -1;
+.project-card:hover {
+  transform: translateY(-10px) rotateX(5deg);
+  border-color: #ffcc00;
+  box-shadow: 0 0 25px rgba(255, 204, 0, 0.7);
 }
 
-/* You can generate stars dynamically via JS with opacity + twinkle effect */
-
-/* ================= ACCESSIBILITY ================= */
-a:focus-visible,
-button:focus-visible,
-input:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid #FFD700;
-  outline-offset: 3px;
+/* ===================== CERTIFICATES ===================== */
+.certificates-list {
+  list-style: disc;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
 }
 
-/* ================= MEDIA QUERIES ================= */
-@media (max-width: 480px) {
-  .hero h1 { font-size: 1.8rem; }
-  .btn { padding: 0.6rem 1.2rem; font-size: 0.95rem; }
-  .skills-list { justify-content: center; gap: 0.5rem; }
-  .projects-grid { gap: 1rem; }
+.certificates-list li {
+  margin-bottom: 0.9rem;
+  color: #ddd;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.certificates-list li:hover {
+  color: #ffcc00;
+  transform: translateX(4px);
+}
+
+/* ===================== CONTACT ===================== */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  max-width: 520px;
+  margin: 2rem auto 0;
+}
+
+form input,
+form textarea {
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 12px #00ffcc;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+  color: #aaa;
+}
+
+form button {
+  background: linear-gradient(90deg, #00ffcc, #0099ff);
+  color: #000;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 30px;
+  transition: all 0.35s ease;
+}
+
+form button:hover {
+  background: linear-gradient(90deg, #ffcc00, #ff8800);
+  box-shadow: 0 0 15px rgba(255, 204, 0, 0.7);
+  transform: scale(1.08) rotateX(3deg);
+}
+
+/* ===================== GAME ===================== */
+#rps-game {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+#rps-game button {
+  padding: 0.8rem 1.5rem;
+  margin: 0.6rem;
+  border-radius: 20px;
+  background: #00ffcc;
+  color: #000;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+#rps-game button:hover {
+  background: #ffcc00;
+  transform: scale(1.12) rotateX(3deg);
+}
+
+#rps-result {
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #00ff88;
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.7);
+}
+
+/* ===================== FOOTER ===================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: #111;
+  border-top: 2px solid #00ffcc;
+  margin-top: 6rem;
+  color: #ccc;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+}
+
+/* ===================== RESPONSIVE ===================== */
+@media (max-width: 768px) {
+  .nav-list {
+    display: none;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.95);
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 70%;
+    padding-top: 5rem;
+    gap: 2rem;
+    z-index: 999;
+    animation: slideIn 0.3s ease forwards;
+  }
+
+  .nav-list.active {
+    display: flex;
+  }
+
+  .nav-toggle {
+    display: block;
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    z-index: 1000;
+  }
+
+  #typing-text {
+    font-size: 2.4rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@keyframes slideIn {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
 }
