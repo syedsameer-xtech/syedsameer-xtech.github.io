@@ -1,130 +1,190 @@
-/* ================= TYPING ANIMATION ================= */
+/* ===================== TYPING EFFECT ===================== */
 const typingText = document.getElementById("typing-text");
-const texts = ["Syed Sameer", "Cybersecurity Engineer", "Web Developer", "Creative Coder"];
-let textIndex = 0, charIndex = 0, isDeleting = false;
+const titles = ["Syed Sameer", "Cybersecurity Engineer", "Web Developer", "Creative Coder"];
+let titleIndex = 0, charIndex = 0, isDeleting = false;
 
-(function type() {
-  const current = texts[textIndex];
+function typeEffect() {
+  const current = titles[titleIndex];
   typingText.textContent = isDeleting
     ? current.substring(0, charIndex--)
     : current.substring(0, charIndex++);
 
-  let delay = isDeleting ? 60 : 120;
-  if (!isDeleting && charIndex === current.length) delay = 1200, isDeleting = true;
-  else if (isDeleting && charIndex === 0) delay = 400, isDeleting = false, textIndex = (textIndex + 1) % texts.length;
+  let delay = isDeleting ? 50 : 120;
 
-  setTimeout(type, delay);
-})();
+  if (!isDeleting && charIndex === current.length) {
+    isDeleting = true;
+    delay = 1500; // pause before deleting
+  } else if (isDeleting && charIndex < 0) {
+    isDeleting = false;
+    titleIndex = (titleIndex + 1) % titles.length;
+    delay = 500; // pause before typing next
+  }
 
-/* ================= STARFIELD BACKGROUND ================= */
+  setTimeout(typeEffect, delay);
+}
+
+window.addEventListener("DOMContentLoaded", typeEffect);
+
+/* ===================== CUSTOM CURSOR ===================== */
+const cursor = document.querySelector(".cursor");
+let mouseX = 0, mouseY = 0;
+
+document.addEventListener("mousemove", e => {
+  mouseX = e.clientX;
+  mouseY = e.clientY;
+  cursor.style.display = "block";
+});
+
+document.addEventListener("mouseleave", () => cursor.style.display = "none");
+
+document.querySelectorAll("a, button, input, textarea").forEach(el => {
+  el.addEventListener("mouseenter", () => cursor.classList.add("active"));
+  el.addEventListener("mouseleave", () => cursor.classList.remove("active"));
+});
+
+function updateCursor() {
+  cursor.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+  requestAnimationFrame(updateCursor);
+}
+updateCursor();
+
+/* ===================== NAVBAR SCROLL EFFECT ===================== */
+const navbar = document.querySelector(".navbar");
+window.addEventListener("scroll", () => {
+  navbar.classList.toggle("scrolled", window.scrollY > 60);
+});
+
+/* ===================== MOBILE MENU TOGGLE ===================== */
+const navToggle = document.querySelector(".nav-toggle");
+const navList = document.querySelector(".nav-list");
+
+if (navToggle) {
+  navToggle.addEventListener("click", () => {
+    const expanded = navToggle.getAttribute("aria-expanded") === "true";
+    navToggle.setAttribute("aria-expanded", !expanded);
+    navList.classList.toggle("active");
+    document.body.classList.toggle("menu-open");
+  });
+
+  navList.querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      navList.classList.remove("active");
+      navToggle.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("menu-open");
+    });
+  });
+}
+
+/* ===================== GSAP SCROLL ANIMATIONS ===================== */
+gsap.registerPlugin(ScrollTrigger, Draggable);
+
+// Fade-in sections
+gsap.utils.toArray(".fade-section").forEach(section => {
+  gsap.fromTo(section,
+    { opacity: 0, y: 50 },
+    {
+      opacity: 1, y: 0, duration: 1, ease: "power2.out",
+      scrollTrigger: { trigger: section, start: "top 80%", once: true }
+    }
+  );
+});
+
+// Draggable project cards
+Draggable.create(".draggable", {
+  type: "x,y",
+  edgeResistance: 0.65,
+  bounds: ".projects-grid",
+  inertia: true
+});
+
+/* ===================== STARFIELD BACKGROUND ===================== */
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
 let stars = [];
+const STAR_COUNT = 180;
 
 function initStars() {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
-  stars = Array.from({ length: 150 }, () => ({
+  stars = Array.from({ length: STAR_COUNT }, () => ({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,
-    r: Math.random() * 1.5 + 0.5,
-    dx: (Math.random() - 0.5) * 0.4,
-    dy: (Math.random() - 0.5) * 0.4,
-    twinkle: Math.random() * Math.PI * 2
+    z: Math.random() * canvas.width,
+    o: Math.random()
   }));
 }
 
 function animateStars() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  stars.forEach(star => {
-    star.twinkle += 0.05;
-    const alpha = 0.5 + Math.sin(star.twinkle) * 0.5;
-    ctx.beginPath();
-    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${alpha.toFixed(2)})`;
-    ctx.fill();
+  ctx.fillStyle = "black";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    star.x += star.dx;
-    star.y += star.dy;
-    if (star.x < 0 || star.x > canvas.width) star.dx *= -1;
-    if (star.y < 0 || star.y > canvas.height) star.dy *= -1;
+  stars.forEach(star => {
+    star.z -= 2;
+    if (star.z <= 0) {
+      star.x = Math.random() * canvas.width;
+      star.y = Math.random() * canvas.height;
+      star.z = canvas.width;
+      star.o = Math.random();
+    }
+
+    const sx = (star.x - canvas.width / 2) * (canvas.width / star.z) + canvas.width / 2;
+    const sy = (star.y - canvas.height / 2) * (canvas.width / star.z) + canvas.height / 2;
+    const radius = (1 - star.z / canvas.width) * 2;
+
+    ctx.beginPath();
+    ctx.arc(sx, sy, radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(0,255,204,${star.o})`;
+    ctx.fill();
   });
+
   requestAnimationFrame(animateStars);
 }
 
-window.addEventListener("resize", () => {
-  clearTimeout(window._resizeTimer);
-  window._resizeTimer = setTimeout(initStars, 200);
-});
+window.addEventListener("resize", initStars);
 initStars();
 animateStars();
 
-/* ================= CUSTOM CURSOR ================= */
-const cursor = document.querySelector(".cursor");
-document.addEventListener("mousemove", e => {
-  cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) scale(1)`;
-});
-document.querySelectorAll("a, button, input, textarea").forEach(el => {
-  el.addEventListener("mouseenter", () => cursor.style.transform += " scale(1.5)");
-  el.addEventListener("mouseleave", () => cursor.style.transform = cursor.style.transform.replace(" scale(1.5)", ""));
-});
-
-/* ================= SCROLL TO TOP BUTTON ================= */
-const scrollTopBtn = document.getElementById("scrollTopBtn");
-window.addEventListener("scroll", () => {
-  const visible = window.scrollY > 200;
-  gsap.to(scrollTopBtn, { scale: visible ? 1 : 0, opacity: visible ? 1 : 0, duration: 0.3, display: visible ? "block" : "none" });
-});
-scrollTopBtn.addEventListener("click", () => window.scrollTo({ top: 0, behavior: "smooth" }));
-
-/* ================= GSAP ANIMATIONS ================= */
-gsap.registerPlugin(ScrollTrigger);
-
-// Hero
-gsap.from(".hero-content", { y: -50, opacity: 0, scale: 0.95, duration: 1.4, ease: "power2.out" });
-
-// Sections
-gsap.utils.toArray("section[data-section]").forEach(section => {
-  gsap.from(section.children, {
-    scrollTrigger: { trigger: section, start: "top 80%", once: true },
-    opacity: 0,
-    y: 30,
-    duration: 0.8,
-    stagger: 0.2,
-    ease: "power2.out"
-  });
-});
-
-/* ================= CONTACT FORM ================= */
+/* ===================== CONTACT FORM ===================== */
 const form = document.getElementById("contact-form");
 if (form) {
   form.addEventListener("submit", e => {
     e.preventDefault();
-    const oldMsg = form.querySelector(".form-success");
-    if (oldMsg) oldMsg.remove();
 
-    const msg = document.createElement("p");
-    msg.textContent = "✅ Thanks for reaching out! I’ll get back to you soon.";
-    msg.className = "form-success";
-    msg.style.color = "#00ff88";
-    msg.style.marginTop = "1rem";
-    msg.style.fontWeight = "bold";
-    msg.style.opacity = 0;
+    form.querySelectorAll(".success-msg").forEach(el => el.remove());
 
-    form.appendChild(msg);
-    gsap.to(msg, { opacity: 1, duration: 0.6 });
+    const successMsg = document.createElement("p");
+    successMsg.textContent = "✅ Message sent successfully!";
+    successMsg.className = "success-msg";
+    successMsg.style.color = "#00ff88";
+    successMsg.style.marginTop = "1rem";
+    successMsg.style.fontWeight = "bold";
+    form.appendChild(successMsg);
 
     form.reset();
-
-    setTimeout(() => gsap.to(msg, { opacity: 0, duration: 1, onComplete: () => msg.remove() }), 5000);
+    setTimeout(() => successMsg.remove(), 4000);
   });
 }
 
-/* ================= NAV TOGGLE FOR MOBILE ================= */
-const navToggle = document.querySelector(".nav-toggle");
-const navList = document.getElementById("primary-menu");
-navToggle?.addEventListener("click", () => {
-  const expanded = navToggle.getAttribute("aria-expanded") === "true";
-  navToggle.setAttribute("aria-expanded", String(!expanded));
-  navList.classList.toggle("active");
-});
+/* ===================== ROCK-PAPER-SCISSORS GAME ===================== */
+function playRPS(userChoice) {
+  const choices = ["rock", "paper", "scissors"];
+  const botChoice = choices[Math.floor(Math.random() * choices.length)];
+  const resultText = document.getElementById("rps-result");
+
+  let result;
+  if (userChoice === botChoice) {
+    result = `🤝 It's a draw! You both chose ${userChoice}.`;
+  } else if (
+    (userChoice === "rock" && botChoice === "scissors") ||
+    (userChoice === "paper" && botChoice === "rock") ||
+    (userChoice === "scissors" && botChoice === "paper")
+  ) {
+    result = `🎉 You win! ${userChoice} beats ${botChoice}.`;
+  } else {
+    result = `💀 You lose! ${botChoice} beats ${userChoice}.`;
+  }
+
+  resultText.textContent = result;
+  resultText.style.opacity = 0;
+  gsap.to(resultText, { opacity: 1, y: -5, duration: 0.6, ease: "power2.out" });
+}
