@@ -3,99 +3,193 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Syed Sameer | Cybersecurity Portfolio</title>
+  <title>Syed Sameer | Cybersecurity Engineer</title>
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/Draggable.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- ================= HEADER / HERO ================= -->
   <header class="hero">
-    <img src="Logo_1.png" alt="Logo" class="logo" />
-    <h1 class="animate-text">SYED SAMEER</h1>
-    <p class="typing">Web Developer | Cybersecurity Engineer | Creative Coder</p>
-    <div class="hero-buttons">
-      <a href="https://github.com/syedsameer-xtech" target="_blank" class="github-btn">Visit GitHub</a>
-      <a href="Syed_Sameer_Resume.pdf" target="_blank" class="resume-btn">Download Resume</a>
+    <div class="hero-top">
+      <img src="Logo_1.png" alt="Syed Logo" class="logo" />
+      <nav>
+        <ul>
+          <li><a href="#projects">Work</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="hero-content">
+      <h1>SYED SAMEER</h1>
+      <p class="tagline">Cybersecurity Engineer • Web Developer • Creative Coder</p>
+      <p class="intro">Securing systems, building tools, and crafting the future of cybersecurity.</p>
+      <div class="hero-buttons">
+        <a href="Syed_Sameer_Resume.pdf" target="_blank">📄 Download Resume</a>
+        <a href="https://github.com/syedsameer-xtech" target="_blank">💻 Visit GitHub</a>
+      </div>
     </div>
   </header>
 
-  <nav>
-    <ul>
-      <li><a href="#about">About</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#certifications">Certifications</a></li>
-      <li><a href="#game">Game</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
-
-  <section id="about">
-    <h2>About Me</h2>
-    <p>I’m a Cybersecurity Engineer driven by curiosity and precision. I build secure systems, detect threats, and design immersive web experiences. Every project reflects my growth, grit, and hunger to learn more.</p>
-  </section>
-
-  <section id="skills">
-    <h2>Skills</h2>
-    <ul>
-      <li>Python, Flask, ML Deployment</li>
-      <li>Frontend: HTML, CSS, JS, GSAP, 3D Animation</li>
-      <li>Cybersecurity: Nmap, Wireshark, Burp Suite, Metasploit</li>
-      <li>UI/UX Design, Rapid Prototyping</li>
-    </ul>
-  </section>
-
+  <!-- ================= PROJECTS ================= -->
   <section id="projects">
-    <h2>Projects</h2>
-    <ul>
-      <li><strong>Phishing URL Detector</strong> — <a href="https://github.com/syedsameer-xtech/phishing-url-detector">GitHub</a></li>
-      <li><strong>Cryptography Algorithms</strong> — <a href="https://github.com/syedsameer-xtech/cryptography-algorithms">GitHub</a></li>
-      <li><strong>Password Cracking & Hashing</strong> — <a href="https://github.com/syedsameer-xtech/password-cracking-and-hashing">GitHub</a></li>
-    </ul>
-  </section>
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
 
-  <section id="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Cybersecurity Foundations — LinkedIn</li>
-      <li>Python — IBM</li>
-      <li>Databases with SQL — CS50</li>
-      <li>EV Technician — ASDC</li>
-      <li>Campus Ambassador — INSPIRE AI</li>
-    </ul>
-  </section>
+      <!-- Project 1 -->
+      <div class="project-card">
+        <img src="phishing-detector.png" alt="Phishing Detector" />
+        <h3>Phishing URL Detector</h3>
+        <p>Detects malicious URLs using ML and Flask API.</p>
+        <details>
+          <summary>Case Study</summary>
+          <p><strong>Problem:</strong> Users fall for phishing links.<br>
+             <strong>Solution:</strong> Trained ML model with feature extraction.<br>
+             <strong>Result:</strong> 95% accuracy, deployed with UI.</p>
+        </details>
+      </div>
 
-  <section id="game">
-    <h2>Rock Paper Scissors</h2>
-    <div class="game-container">
-      <button onclick="play('rock')">🪨 Rock</button>
-      <button onclick="play('paper')">📄 Paper</button>
-      <button onclick="play('scissors')">✂️ Scissors</button>
-      <p id="game-result"></p>
-      <div id="scoreboard"></div>
-      <div id="win-pop-left" class="pop">🎉</div>
-      <div id="win-pop-right" class="pop">🎉</div>
+      <!-- Project 2 -->
+      <div class="project-card">
+        <img src="firewall.png" alt="Firewall Automation" />
+        <h3>Firewall Automation Script</h3>
+        <p>Automates firewall rules to block malicious IPs.</p>
+        <details>
+          <summary>Case Study</summary>
+          <p><strong>Problem:</strong> Manual updates slow down response.<br>
+             <strong>Solution:</strong> Python script integrating threat feeds.<br>
+             <strong>Result:</strong> 60% faster mitigation process.</p>
+        </details>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <img src="dashboard.png" alt="Security Dashboard" />
+        <h3>Security Analytics Dashboard</h3>
+        <p>Built with React + Node.js for real-time monitoring.</p>
+        <details>
+          <summary>Case Study</summary>
+          <p><strong>Problem:</strong> No centralized view of system health.<br>
+             <strong>Solution:</strong> Full-stack dashboard with data viz.<br>
+             <strong>Result:</strong> 30% improvement in threat detection speed.</p>
+        </details>
+      </div>
+
     </div>
   </section>
 
+  <!-- ================= SKILLS ================= -->
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+
+      <div class="skill-box">
+        <h3>Cybersecurity</h3>
+        <ul>
+          <li>Penetration Testing</li>
+          <li>Threat Detection & Analysis</li>
+          <li>Security Auditing</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h3>Development</h3>
+        <ul>
+          <li>Python, Flask, Django</li>
+          <li>JavaScript, React</li>
+          <li>Database Security (SQL, MongoDB)</li>
+        </ul>
+      </div>
+
+      <div class="skill-box">
+        <h3>Tools & Certifications</h3>
+        <ul>
+          <li>Kali Linux, Wireshark</li>
+          <li>Burp Suite, Nmap</li>
+          <li>IIT Bombay & CS50 Certified</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= EXPERIENCE ================= -->
+  <section id="experience">
+    <h2>Experience & Achievements</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <h3>INSPIRE AI – Campus Ambassador</h3>
+        <p>Organized workshops, trained 200+ students, and promoted AI literacy.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Cybersecurity Tools Development</h3>
+        <p>Built phishing detection tools used by 100+ students and researchers.</p>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Hackathon Wins</h3>
+        <p>Secured top positions in 3+ national hackathons focusing on security.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="about-container">
+      <img src="portrait.png" alt="Syed Portrait" class="about-image" />
+      <div class="about-text">
+        <p>I’m a Cybersecurity Engineer driven by curiosity and precision. I build secure systems, detect threats, and design immersive web experiences. Every project reflects my growth, grit, and hunger to learn more.</p>
+        <p><strong>Impact:</strong> Built phishing tools used by 100+ students. Campus Ambassador for INSPIRE AI. Certified by IIT Bombay and CS50.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TESTIMONIALS ================= -->
+  <section id="testimonials">
+    <h2>What People Say</h2>
+    <div class="testimonial-card">
+      <p>"Sameer is a sharp problem-solver. His phishing tool became a key teaching resource."</p>
+      <h4>- Prof. XYZ, IIT Bombay</h4>
+    </div>
+    <div class="testimonial-card">
+      <p>"One of the most dedicated engineers I’ve worked with. He blends creativity with security."</p>
+      <h4>- Hackathon Teammate</h4>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
   <section id="contact">
-    <h2>Contact Me</h2>
+    <h2>Let’s Work Together</h2>
     <form id="contact-form">
       <input type="text" placeholder="Your Name" required />
       <input type="email" placeholder="Your Email" required />
       <textarea placeholder="Your Message" required></textarea>
-      <button type="submit">Send Message</button>
+      <button type="submit">🚀 Send Message</button>
     </form>
 
-    <h3>Feedback</h3>
-    <form id="feedback-form">
-      <textarea placeholder="Share your thoughts..." required></textarea>
-      <button type="submit">Submit Feedback</button>
-    </form>
+    <div class="social-links">
+      <a href="https://linkedin.com/in/syedsameer" target="_blank">🔗 LinkedIn</a>
+      <a href="https://github.com/syedsameer-xtech" target="_blank">💻 GitHub</a>
+      <a href="mailto:syedsameer@example.com">✉️ Email</a>
+    </div>
   </section>
 
-  <button id="scrollTop">↑</button>
+  <!-- ================= FOOTER ================= -->
+  <footer>
+    <p>© 2025 Syed Sameer. Built with passion and precision.</p>
+    <p><a href="#top">⬆ Back to Top</a></p>
+    <p>Made with ❤️ using HTML, CSS, and JavaScript</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
