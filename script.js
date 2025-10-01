@@ -58,15 +58,32 @@ function rotateQuotes(){
 
 rotateQuotes();
 
-// ROCK-PAPER-SCISSORS GAME
+// ROCK-PAPER-SCISSORS GAME with score
+let userScore=0, botScore=0;
 function playRPS(userChoice){
   const choices = ["rock","paper","scissors"];
   const botChoice = choices[Math.floor(Math.random()*choices.length)];
   const resultText = document.getElementById("rps-result");
+  const scoreText = document.getElementById("rps-score");
   let result;
   if(userChoice===botChoice) result=`🤝 Draw! Both chose ${userChoice}.`;
-  else if((userChoice==="rock"&&botChoice==="scissors")||(userChoice==="paper"&&botChoice==="rock")||(userChoice==="scissors"&&botChoice==="paper"))
+  else if((userChoice==="rock"&&botChoice==="scissors")||(userChoice==="paper"&&botChoice==="rock")||(userChoice==="scissors"&&botChoice==="paper")){
     result=`🎉 You win! ${userChoice} beats ${botChoice}.`;
-  else result=`💀 You lose! ${botChoice} beats ${userChoice}.`;
+    userScore++;
+  } else {
+    result=`💀 You lose! ${botChoice} beats ${userChoice}.`;
+    botScore++;
+  }
   resultText.textContent=result;
+  scoreText.textContent=`Your Score: ${userScore} | Bot Score: ${botScore}`;
+}
+
+// FEEDBACK FORM
+const form = document.getElementById("feedback-form");
+if(form){
+  form.addEventListener("submit", e=>{
+    e.preventDefault();
+    alert("✅ Feedback sent successfully!");
+    form.reset();
+  });
 }
