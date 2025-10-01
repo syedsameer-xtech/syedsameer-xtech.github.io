@@ -40,11 +40,11 @@ animateStars();
 const quotes = [
   "Nothing kills you faster than your own mind. Don't stress over things out of control.",
   "Having someone you can call crying, and end the call laughing is a true blessing!",
-  'Your "normal" day is someone\'s dream, so be thankful everyday.',
+  'Your "normal" day is someone\'s dream, so be thankful every day.',
   "What you see daily shapes you. Your feed trains your brain each day.",
   "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
   "When you have a heart of gold and pure intentions, you don't lose anyone- they lose you.",
-  "It's on you. To get you where you want to be.",
+  "It's on you. To get you. Where you want to be.",
   "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever."
 ];
 let quoteIndex = 0;
@@ -87,3 +87,4 @@ if(form){
     form.reset();
   });
 }
+
