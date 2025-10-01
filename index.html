@@ -15,8 +15,8 @@
   <header class="hero">
     <div class="hero-box">
       <h1>Syed Sameer</h1>
-      <p class="tagline">Aspiring Cybersecurity Expert</p>
     </div>
+    <p class="tagline">Aspiring Cybersecurity Expert</p>
   </header>
 
   <!-- QUOTES SECTION -->
@@ -60,13 +60,13 @@
   <!-- CERTIFICATES -->
   <section class="certificates-section">
     <h2>Certificates</h2>
-    <ul class="certificates-list">
-      <li>Introduction to Python – IBM</li>
-      <li>Cybersecurity Full Course – Simplilearn</li>
-      <li>Python 3.4.3 – IIT Bombay Spoken Tutorial</li>
-      <li>Database with SQL – CS50</li>
-      <li>Machine Learning with R – Simplilearn</li>
-    </ul>
+    <div class="certificates-grid">
+      <div class="certificate-box">Introduction to Python – IBM</div>
+      <div class="certificate-box">Cybersecurity Full Course – Simplilearn</div>
+      <div class="certificate-box">Python 3.4.3 – IIT Bombay Spoken Tutorial</div>
+      <div class="certificate-box">Database with SQL – CS50</div>
+      <div class="certificate-box">Machine Learning with R – Simplilearn</div>
+    </div>
   </section>
 
   <!-- GAME -->
@@ -77,21 +77,28 @@
       <button onclick="playRPS('paper')">📄 Paper</button>
       <button onclick="playRPS('scissors')">✂️ Scissors</button>
       <p id="rps-result"></p>
+      <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
     </div>
   </section>
 
-  <!-- CONTACT -->
+  <!-- FEEDBACK FORM -->
+  <section class="feedback-section">
+    <h2>Feedback / Contact</h2>
+    <form id="feedback-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea placeholder="Your Message" rows="4" required></textarea>
+      <button type="submit">Send Feedback</button>
+    </form>
+  </section>
+
+  <!-- SOCIAL & RESUME -->
   <section class="contact-section">
-    <h2>Contact</h2>
     <div class="contact-boxes">
       <a href="mailto:syedsameer@example.com" class="contact-box">📧 Email</a>
       <a href="https://www.linkedin.com/in/syedsameer" target="_blank" class="contact-box">🔗 LinkedIn</a>
       <a href="https://github.com/syedsameer-xtech" target="_blank" class="contact-box">🐙 GitHub</a>
     </div>
-  </section>
-
-  <!-- RESUME -->
-  <section class="resume-section">
     <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" download class="resume-btn">📄 Download Resume</a>
   </section>
 
