@@ -1,48 +1,47 @@
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
-body { font-family:'Poppins', sans-serif; background:#121212; color:#e5e5e5; line-height:1.6; }
+body { font-family:'Poppins', sans-serif; background:#111; color:#e5e5e5; line-height:1.6; }
 
 /* HERO */
 .hero { text-align:center; padding:6rem 2rem; }
-#typing-text { font-size:3rem; margin-bottom:1rem; }
-.subheading-box { font-size:1.2rem; color:#ccc; }
+#typing-text { font-size:3rem; min-height:3.5rem; display:inline-block; }
+.subheading { font-size:1.1rem; color:#aaa; margin-top:0.5rem; }
 
 /* SECTIONS */
 section { padding:4rem 2rem; max-width:900px; margin:auto; }
 h2 { font-size:2rem; text-align:center; margin-bottom:1.5rem; color:#fff; }
+p { color:#ccc; text-align:center; }
+
+/* LISTS */
 ul { list-style:none; padding-left:0; }
-ul li { background:#1e1e1e; margin:0.5rem 0; padding:0.8rem 1rem; border-radius:8px; box-shadow:0 3px 8px rgba(0,0,0,0.5); }
+ul li { background:#1e1e1e; margin:0.6rem 0; padding:0.8rem 1rem; border-radius:8px; box-shadow:0 3px 6px rgba(0,0,0,0.4); }
+ul li a { color:#e5e5e5; text-decoration:none; display:block; }
+ul li a:hover { color:#fff; text-decoration:underline; }
 
 /* SKILLS */
 .skills-list { display:flex; flex-wrap:wrap; gap:0.8rem; justify-content:center; }
 .skills-list li { flex:0 0 auto; }
 
-/* PROJECTS */
-.projects-list li { }
-
-/* CERTIFICATES */
-.certificates-list li { }
-
 /* ROCK-PAPER-SCISSORS GAME */
 #rps-game { text-align:center; margin-top:1rem; }
 #rps-game button { margin:0.5rem; padding:0.7rem 1.5rem; border:none; border-radius:6px; background:#e5e5e5; color:#121212; cursor:pointer; }
 #rps-game button:hover { background:#ccc; }
-#rps-result { margin-top:0.5rem; font-weight:bold; }
+#rps-result { margin-top:0.8rem; font-weight:bold; }
 
 /* CONTACT FORM */
 form { display:flex; flex-direction:column; gap:1rem; max-width:500px; margin:auto; }
 input, textarea { padding:0.8rem; border-radius:6px; border:none; background:#1e1e1e; color:#e5e5e5; }
-input:focus, textarea:focus { outline:2px solid #ccc; }
+input:focus, textarea:focus { outline:2px solid #888; }
 button { padding:0.8rem; border-radius:6px; border:none; background:#e5e5e5; color:#121212; cursor:pointer; }
 button:hover { background:#ccc; }
 
 /* FOOTER */
-footer { text-align:center; padding:2rem; color:#ccc; font-size:0.9rem; }
+footer { text-align:center; padding:2rem; color:#aaa; font-size:0.9rem; }
 footer a { color:#e5e5e5; text-decoration:none; }
 footer a:hover { text-decoration:underline; }
 
 /* RESPONSIVE */
 @media(max-width:600px){
-  #typing-text { font-size:2.2rem; }
+  #typing-text { font-size:2.2rem; min-height:2.8rem; }
   .skills-list { flex-direction:column; align-items:center; }
 }
