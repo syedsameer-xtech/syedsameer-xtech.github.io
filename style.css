@@ -2,9 +2,8 @@
 .logo {
   position: fixed;
   top: 15px;
-  left: 15px;
+  right: 15px;
   z-index: 10;
-  display: block;
   width: 60px;
   height: 60px;
 }
@@ -16,9 +15,13 @@
   box-shadow: 0 0 15px #555;
   transition: transform 0.3s;
 }
-.logo img:hover {
-  transform: scale(1.1);
+.logo img:hover { transform: scale(1.1); }
+
+/* RESPONSIVE LOGO */
+@media screen and (max-width: 600px) {
+  .logo { width: 45px; height: 45px; }
 }
+
 /* RESET */
 * { margin:0; padding:0; box-sizing:border-box; }
 body { font-family:'Poppins',sans-serif; background:#000; color:#fff; overflow-x:hidden; }
@@ -82,4 +85,3 @@ canvas#star-bg { position:fixed; top:0; left:0; width:100%; height:100%; z-index
 
 /* HEADINGS */
 h2 { font-size:2rem; margin-bottom:25px; color:#fff; }
-
