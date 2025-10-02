@@ -49,13 +49,11 @@ const quotes = [
 ];
 let quoteIndex = 0;
 const quoteText = document.getElementById('quote-text');
-
 function rotateQuotes(){
   quoteText.textContent = quotes[quoteIndex];
   quoteIndex = (quoteIndex+1)%quotes.length;
   setTimeout(rotateQuotes,5000);
 }
-
 rotateQuotes();
 
 // ROCK-PAPER-SCISSORS GAME with score
@@ -87,4 +85,3 @@ if(form){
     form.reset();
   });
 }
-
