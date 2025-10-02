@@ -56,7 +56,7 @@ function rotateQuotes(){
 }
 rotateQuotes();
 
-// ROCK-PAPER-SCISSORS GAME
+// ROCK-PAPER-SCISSORS GAME with score
 let userScore=0, botScore=0;
 function playRPS(userChoice){
   const choices = ["rock","paper","scissors"];
