@@ -1,99 +1,107 @@
-// STARFIELD BACKGROUND
-const canvas = document.getElementById('star-bg');
-const ctx = canvas.getContext('2d');
-let stars = [];
-const STAR_COUNT = 200;
-
-function initStars() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  stars = Array.from({length: STAR_COUNT}, () => ({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    z: Math.random() * canvas.width,
-    o: Math.random()
-  }));
+/* ===== LOGO BUTTON ===== */
+.logo-btn {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 110px;
+  height: 110px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 15px;
+  z-index: 1000;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.logo-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.logo-btn:hover {
+  transform: scale(1.1);
+}
+.logo-btn:hover img {
+  transform: scale(1.1);
+  box-shadow: 0 0 35px rgba(255, 255, 255, 0.4);
 }
 
-function animateStars() {
-  ctx.fillStyle = "#000";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
-  stars.forEach(s => {
-    s.z -= 2;
-    if (s.z <= 0) {
-      s.x = Math.random() * canvas.width;
-      s.y = Math.random() * canvas.height;
-      s.z = canvas.width;
-      s.o = Math.random();
-    }
-    const sx = (s.x - canvas.width/2) * (canvas.width / s.z) + canvas.width/2;
-    const sy = (s.y - canvas.height/2) * (canvas.width / s.z) + canvas.height/2;
-    const radius = (1 - s.z / canvas.width) * 2;
-    ctx.beginPath();
-    ctx.arc(sx, sy, radius, 0, Math.PI * 2);
-    ctx.fillStyle = `rgba(255,255,255,${s.o})`;
-    ctx.fill();
-  });
-  requestAnimationFrame(animateStars);
+/* GENERAL */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  padding-top: 150px;
+  overflow-x: hidden;
 }
 
-window.addEventListener('resize', initStars);
-initStars();
-animateStars();
+/* STARFIELD */
+canvas#star-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-// QUOTES ROTATION
-const quotes = [
-  "Nothing kills you faster than your own mind. Don't stress over things out of control.",
-  "Having someone you can call crying, and end the call laughing is a true blessing!",
-  'Your "normal" day is someone\'s dream, so be thankful every day.',
-  "What you see daily shapes you. Your feed trains your brain each day.",
-  "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
-  "When you have a heart of gold and pure intentions, you don't lose anyone- they lose you.",
-  "It's on you. To get you. Where you want to be.",
-  "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever."
-];
-let quoteIndex = 0;
-const quoteText = document.getElementById('quote-text');
+/* HERO */
+.hero { display:flex; flex-direction:column; align-items:center; justify-content:center; height:40vh; gap:15px; }
+.hero-box { text-align:center; background:#222; padding:30px 50px; border-radius:15px; box-shadow:0 0 25px #555; }
+.hero-box h1 { font-size:3rem; color:#fff; }
+.tagline { font-size:1.3rem; color:#ccc; }
 
-function rotateQuotes() {
-  quoteText.textContent = quotes[quoteIndex];
-  quoteIndex = (quoteIndex + 1) % quotes.length;
-  setTimeout(rotateQuotes, 5000);
+/* QUOTES */
+.quotes-section { display:flex; justify-content:center; margin:50px 0; }
+.quotes-box { background:#333; padding:25px; border-radius:15px; max-width:800px; box-shadow:0 0 25px #555; font-size:1.2rem; text-align:center; color:#eee; }
+
+/* SKILLS */
+.skills-section { text-align:center; padding:50px 20px; }
+.skills-list { display:flex; flex-wrap:wrap; justify-content:center; gap:12px; list-style:none; }
+.skills-list li { background:#444; padding:10px 20px; border-radius:10px; transition:0.3s; }
+.skills-list li:hover { transform:scale(1.1); box-shadow:0 0 20px #555; }
+
+/* PROJECTS */
+.projects-section { text-align:center; padding:50px 20px; }
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.project-card { background:#222; padding:20px; border-radius:12px; color:#fff; text-decoration:none; transition:0.3s; }
+.project-card:hover { transform:scale(1.08); box-shadow:0 0 25px #555; }
+
+/* CERTIFICATES */
+.certificates-section { text-align:center; padding:50px 20px; }
+.certificates-grid { display:flex; flex-direction:column; align-items:center; gap:15px; margin-bottom:20px; }
+.certificate-box { background:#333; padding:15px 20px; border-radius:10px; box-shadow:0 0 15px #555; color:#ccc; transition:0.3s; }
+.certificate-box:hover { transform:scale(1.05); box-shadow:0 0 25px #777; }
+
+/* "See More" Button */
+.see-more-btn {
+  display:inline-block;
+  margin-top:15px;
+  padding:12px 25px;
+  background:#444;
+  border-radius:12px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:transform 0.3s, box-shadow 0.3s;
+}
+.see-more-btn:hover {
+  transform:scale(1.15);
+  box-shadow:0 0 25px #999;
 }
 
-rotateQuotes();
+/* GAME */
+.game-section { text-align:center; padding:50px 20px; }
+#rps-game button { margin:5px; padding:10px 20px; border:none; border-radius:10px; background:#444; color:#fff; cursor:pointer; transition:0.3s; }
+#rps-game button:hover { transform:scale(1.1); box-shadow:0 0 15px #555; }
 
-// ROCK-PAPER-SCISSORS GAME with score
-let userScore = 0, botScore = 0;
-function playRPS(userChoice) {
-  const choices = ["rock", "paper", "scissors"];
-  const botChoice = choices[Math.floor(Math.random() * choices.length)];
-  const resultText = document.getElementById("rps-result");
-  const scoreText = document.getElementById("rps-score");
-  let result;
+/* FEEDBACK */
+.feedback-section { text-align:center; padding:50px 20px; }
+#feedback-form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
+#feedback-form input, #feedback-form textarea { padding:10px; border:none; border-radius:10px; background:#222; color:#fff; }
+#feedback-form button { background:#444; border:none; padding:12px; border-radius:10px; color:#fff; transition:0.3s; }
+#feedback-form button:hover { transform:scale(1.1); box-shadow:0 0 20px #555; }
 
-  if (userChoice === botChoice) {
-    result = `🤝 Draw! Both chose ${userChoice}.`;
-  } else if ((userChoice === "rock" && botChoice === "scissors") ||
-             (userChoice === "paper" && botChoice === "rock") ||
-             (userChoice === "scissors" && botChoice === "paper")) {
-    result = `🎉 You win! ${userChoice} beats ${botChoice}.`;
-    userScore++;
-  } else {
-    result = `💀 You lose! ${botChoice} beats ${userChoice}.`;
-    botScore++;
-  }
+/* CONTACT */
+.contact-section { text-align:center; padding:50px 20px; display:flex; flex-direction:column; gap:20px; align-items:center; }
+.contact-boxes { display:flex; gap:15px; flex-wrap:wrap; justify-content:center; }
+.contact-box { background:#333; padding:15px 25px; border-radius:12px; text-decoration:none; color:#fff; transition:0.3s; }
+.contact-box:hover { transform:scale(1.15); box-shadow:0 0 25px #aaa; }
 
-  resultText.textContent = result;
-  scoreText.textContent = `Your Score: ${userScore} | Bot Score: ${botScore}`;
-}
-
-// FEEDBACK FORM
-const form = document.getElementById("feedback-form");
-if(form){
-  form.addEventListener("submit", e => {
-    e.preventDefault();
-    alert("✅ Feedback sent successfully!");
-    form.reset();
-  });
-}
+.resume-btn { background:#444; padding:15px 30px; border-radius:12px; text-decoration:none; color:#fff; font-weight:bold; transition:0.3s; }
+.resume-btn:hover { transform:scale(1.15); box-shadow:0 0 25px #aaa; }
