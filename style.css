@@ -4,8 +4,8 @@
   top: 20px;
   left: 20px;
   z-index: 1000;
-  width: 110px;   /* ~3cm */
-  height: 110px;  /* ~3cm */
+  width: 110px;
+  height: 110px;
 }
 .logo img {
   width: 100%;
@@ -22,7 +22,7 @@
 
 /* Add padding so hero section doesn't overlap logo */
 body {
-  padding-top: 150px; /* Leaves space for fixed logo */
+  padding-top: 150px;
   font-family: 'Poppins', sans-serif;
   background: #000;
   color: #fff;
@@ -64,6 +64,8 @@ canvas#star-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-
 .certificate-box:nth-child(4) { animation-delay: 0.8s; }
 .certificate-box:nth-child(5) { animation-delay: 1s; }
 @keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
+.see-more-btn { display:inline-block; margin-top:20px; background:#444; padding:12px 25px; border-radius:10px; color:#fff; text-decoration:none; font-weight:bold; box-shadow:0 0 15px #555; transition:0.3s; }
+.see-more-btn:hover { transform:scale(1.1); box-shadow:0 0 25px #aaa; }
 
 /* GAME */
 .game-section { text-align:center; padding:50px 20px; }
