@@ -1,92 +1,124 @@
-/* LOGO - fixed, top-left */
-.logo {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  z-index: 1000;
-  width: 110px;
-  height: 110px;
-}
-.logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 15px;
-  box-shadow: 0 0 20px #555;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-.logo img:hover {
-  transform: scale(1.08);
-  box-shadow: 0 0 30px #888;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Syed Sameer — Aspiring Cybersecurity Expert</title>
+  <meta name="description" content="Portfolio of Syed Sameer — Aspiring Cybersecurity Expert. Projects, skills, certificates and contact." />
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Fixed Logo -->
+  <a class="logo" href="index.html" aria-label="Home">
+    <img src="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png"
+         alt="Syed Sameer logo" width="110" height="110">
+  </a>
 
-/* Add padding so hero section doesn't overlap logo */
-body {
-  padding-top: 150px;
-  font-family: 'Poppins', sans-serif;
-  background: #000;
-  color: #fff;
-  overflow-x: hidden;
-}
+  <!-- STARFIELD BACKGROUND -->
+  <canvas id="star-bg" aria-hidden="true"></canvas>
 
-/* STARFIELD */
-canvas#star-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
+  <!-- MAIN CONTENT -->
+  <main id="main" class="container" role="main">
 
-/* HERO */
-.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; height:40vh; gap:15px; }
-.hero-box { text-align:center; background:#222; padding:30px 50px; border-radius:15px; box-shadow:0 0 25px #555; }
-.hero-box h1 { font-size:3rem; color:#fff; }
-.hero .tagline { font-size:1.4rem; color:#ccc; }
+    <!-- HERO -->
+    <header class="hero" role="banner" aria-labelledby="hero-name">
+      <div class="name-box" id="hero-name" aria-label="Syed Sameer">
+        <h1>Syed Sameer</h1>
+      </div>
+      <p class="tagline">Aspiring Cybersecurity Expert</p>
+    </header>
 
-/* QUOTES */
-.quotes-section { display:flex; justify-content:center; margin:50px 0; }
-.quotes-box { background:#333; padding:25px; border-radius:15px; max-width:800px; box-shadow:0 0 25px #555; font-size:1.2rem; text-align:center; color:#eee; min-height:80px; display:flex; align-items:center; justify-content:center; }
+    <!-- QUOTES -->
+    <section class="quotes-section" aria-label="Quotes">
+      <div class="quotes-box" role="note" aria-live="polite">
+        <p id="quote-text">Loading...</p>
+      </div>
+    </section>
 
-/* SKILLS */
-.skills-section { text-align:center; padding:50px 20px; }
-.skills-list { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
-.skills-list li { background:#444; padding:10px 20px; border-radius:10px; box-shadow:0 0 10px #222; transition:0.3s; }
-.skills-list li:hover { transform:scale(1.1); box-shadow:0 0 20px #555; }
+    <!-- SKILLS -->
+    <section class="skills-section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+      <ul class="skills-list" role="list">
+        <li>Python</li>
+        <li>JavaScript</li>
+        <li>HTML &amp; CSS</li>
+        <li>Flask</li>
+        <li>Machine Learning (Basics)</li>
+        <li>Cybersecurity</li>
+        <li>Linux</li>
+        <li>Git / GitHub</li>
+        <li>SQL</li>
+        <li>Java</li>
+        <li>C</li>
+      </ul>
+    </section>
 
-/* PROJECTS */
-.projects-section { text-align:center; padding:50px 20px; }
-.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
-.project-card { background:#222; padding:20px; border-radius:12px; text-decoration:none; color:#fff; box-shadow:0 0 15px #333; transition:0.3s; }
-.project-card:hover { transform:scale(1.05); box-shadow:0 0 25px #555; }
+    <!-- PROJECTS -->
+    <section class="projects-section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Selected Projects</h2>
+      <div class="projects-grid" role="list">
+        <a class="project-card" role="listitem" href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank" rel="noopener">🔐 Cryptography Algorithms</a>
+        <a class="project-card" role="listitem" href="https://github.com/syedsameer-xtech/password-cracking-and-hashing" target="_blank" rel="noopener">🔑 Password Cracking &amp; Hashing</a>
+        <a class="project-card" role="listitem" href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank" rel="noopener">🛡️ Phishing URL Detector</a>
+        <a class="project-card" role="listitem" href="https://github.com/syedsameer-xtech/Securing-User-Registration-Systems" target="_blank" rel="noopener">🔒 Securing User Registration</a>
+        <a class="project-card" role="listitem" href="https://github.com/syedsameer-xtech/Simple_Network_Sniffer" target="_blank" rel="noopener">🌐 Simple Network Sniffer</a>
+      </div>
+    </section>
 
-/* CERTIFICATES */
-.certificates-section { text-align:center; padding:50px 20px; }
-.certificates-grid { display:flex; flex-direction:column; align-items:center; gap:15px; }
-.certificate-box { background:#333; padding:15px 20px; border-radius:10px; box-shadow:0 0 15px #555; color:#ccc; opacity:0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; }
-.certificate-box:nth-child(1) { animation-delay: 0.2s; }
-.certificate-box:nth-child(2) { animation-delay: 0.4s; }
-.certificate-box:nth-child(3) { animation-delay: 0.6s; }
-.certificate-box:nth-child(4) { animation-delay: 0.8s; }
-.certificate-box:nth-child(5) { animation-delay: 1s; }
-@keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
-.see-more-btn { display:inline-block; margin-top:20px; background:#444; padding:12px 25px; border-radius:10px; color:#fff; text-decoration:none; font-weight:bold; box-shadow:0 0 15px #555; transition:0.3s; }
-.see-more-btn:hover { transform:scale(1.1); box-shadow:0 0 25px #aaa; }
+    <!-- CERTIFICATES -->
+    <section class="certificates-section" aria-labelledby="certs-heading">
+      <h2 id="certs-heading">Important Certificates</h2>
+      <div class="certificates-grid">
+        <div class="certificate-box" title="IBM">Introduction to Python — IBM</div>
+        <div class="certificate-box" title="Simplilearn">Cybersecurity Full Course — Simplilearn</div>
+        <div class="certificate-box" title="IIT Bombay">Python 3.4.3 — IIT Bombay (Spoken Tutorial)</div>
+        <div class="certificate-box" title="CS50">Database with SQL — CS50</div>
+        <div class="certificate-box" title="Simplilearn">Machine Learning with R — Simplilearn</div>
+      </div>
+      <div class="more-cert">
+        <a class="btn small" href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=drive_link" target="_blank" rel="noopener noreferrer">See more certificates</a>
+      </div>
+    </section>
 
-/* GAME */
-.game-section { text-align:center; padding:50px 20px; }
-#rps-game button { margin:5px; padding:10px 20px; border-radius:10px; border:none; background:#444; color:#fff; cursor:pointer; transition:0.3s; }
-#rps-game button:hover { transform:scale(1.1); box-shadow:0 0 15px #555; }
-#rps-result, #rps-score { margin-top:10px; font-weight:bold; }
+    <!-- GAME (RPS) -->
+    <section class="game-section" aria-labelledby="game-heading">
+      <h2 id="game-heading">Play — Rock Paper Scissors</h2>
+      <div id="rps-game" class="rps">
+        <div class="rps-controls">
+          <button class="rps-btn" data-move="rock" aria-label="Play rock">🪨 Rock</button>
+          <button class="rps-btn" data-move="paper" aria-label="Play paper">📄 Paper</button>
+          <button class="rps-btn" data-move="scissors" aria-label="Play scissors">✂️ Scissors</button>
+        </div>
+        <p id="rps-result" class="rps-result" aria-live="polite"></p>
+        <p id="rps-score" class="rps-score">Your Score: 0 | Bot Score: 0</p>
+      </div>
+    </section>
 
-/* FEEDBACK */
-.feedback-section { text-align:center; padding:50px 20px; }
-#feedback-form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
-#feedback-form input, #feedback-form textarea { padding:10px; border-radius:10px; border:none; background:#222; color:#fff; outline:none; }
-#feedback-form button { padding:12px; border:none; border-radius:12px; background:#444; color:#fff; cursor:pointer; transition:0.3s; }
-#feedback-form button:hover { transform:scale(1.05); box-shadow:0 0 15px #555; }
+    <!-- FEEDBACK -->
+    <section class="feedback-section" aria-labelledby="feedback-heading">
+      <h2 id="feedback-heading">Feedback / Contact</h2>
+      <form id="feedback-form" class="feedback-form" aria-label="Feedback form">
+        <input name="name" type="text" placeholder="Your name" required>
+        <input name="email" type="email" placeholder="Your email" required>
+        <textarea name="message" rows="4" placeholder="Message" required></textarea>
+        <button type="submit" class="btn">Send Feedback</button>
+      </form>
+    </section>
 
-/* CONTACT & RESUME */
-.contact-section { text-align:center; padding:50px 20px; display:flex; flex-direction:column; gap:25px; align-items:center; }
-.contact-boxes { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
-.contact-box { background:#333; padding:15px 25px; border-radius:12px; text-decoration:none; color:#fff; box-shadow:0 0 15px #555; transition:0.3s; }
-.contact-box:hover { transform:scale(1.2); box-shadow:0 0 25px #aaa; }
-.resume-btn { display:inline-block; background:#444; padding:15px 30px; border-radius:12px; color:#fff; text-decoration:none; font-weight:bold; box-shadow:0 0 15px #555; transition:0.3s; }
-.resume-btn:hover { transform:scale(1.2); box-shadow:0 0 25px #aaa; }
+    <!-- CONTACT & RESUME -->
+    <section class="contact-section" aria-label="Contact and resume">
+      <div class="contact-boxes" role="group" aria-label="Contact links">
+        <a class="contact-box" href="mailto:syedsameer.xtech@gmail.com">📧 Email</a>
+        <a class="contact-box" href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener">🔗 LinkedIn</a>
+        <a class="contact-box" href="https://github.com/syedsameer-xtech" target="_blank" rel="noopener">🐙 GitHub</a>
+      </div>
 
-/* HEADINGS */
-h2 { font-size:2rem; margin-bottom:25px; color:#fff; }
+      <!-- Resume download (raw=true to prompt raw file) -->
+      <a class="resume-btn" href="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Syed_Sameer_Resume.pdf" download>📄 Download Resume</a>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
