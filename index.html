@@ -1,112 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Syed Sameer | Aspiring Cybersecurity Expert</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+/* LOGO - fixed, top-left */
+.logo {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  width: 110px;
+  height: 110px;
+}
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 15px;
+  box-shadow: 0 0 20px #555;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.logo img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #888;
+}
 
-  <!-- LOGO (Fixed top-left) -->
-  <a href="index.html" class="logo">
-    <img src="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" alt="Syed Sameer Logo">
-  </a>
+/* Add padding so hero section doesn't overlap logo */
+body {
+  padding-top: 150px;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  overflow-x: hidden;
+}
 
-  <!-- STARFIELD BACKGROUND -->
-  <canvas id="star-bg"></canvas>
+/* STARFIELD */
+canvas#star-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1; }
 
-  <!-- HERO SECTION -->
-  <header class="hero">
-    <div class="hero-box">
-      <h1>Syed Sameer</h1>
-    </div>
-    <p class="tagline">Aspiring Cybersecurity Expert</p>
-  </header>
+/* HERO */
+.hero { display:flex; flex-direction:column; justify-content:center; align-items:center; height:40vh; gap:15px; }
+.hero-box { text-align:center; background:#222; padding:30px 50px; border-radius:15px; box-shadow:0 0 25px #555; }
+.hero-box h1 { font-size:3rem; color:#fff; }
+.hero .tagline { font-size:1.4rem; color:#ccc; }
 
-  <!-- QUOTES SECTION -->
-  <section class="quotes-section">
-    <div class="quotes-box">
-      <p id="quote-text"></p>
-    </div>
-  </section>
+/* QUOTES */
+.quotes-section { display:flex; justify-content:center; margin:50px 0; }
+.quotes-box { background:#333; padding:25px; border-radius:15px; max-width:800px; box-shadow:0 0 25px #555; font-size:1.2rem; text-align:center; color:#eee; min-height:80px; display:flex; align-items:center; justify-content:center; }
 
-  <!-- SKILLS -->
-  <section class="skills-section">
-    <h2>Skills</h2>
-    <ul class="skills-list">
-      <li>Python</li>
-      <li>JavaScript</li>
-      <li>HTML & CSS</li>
-      <li>Flask</li>
-      <li>Machine Learning</li>
-      <li>Cybersecurity</li>
-      <li>Linux</li>
-      <li>Git / GitHub</li>
-      <li>SQL</li>
-      <li>Java</li>
-      <li>C</li>
-    </ul>
-  </section>
+/* SKILLS */
+.skills-section { text-align:center; padding:50px 20px; }
+.skills-list { list-style:none; display:flex; flex-wrap:wrap; justify-content:center; gap:10px; }
+.skills-list li { background:#444; padding:10px 20px; border-radius:10px; box-shadow:0 0 10px #222; transition:0.3s; }
+.skills-list li:hover { transform:scale(1.1); box-shadow:0 0 20px #555; }
 
-  <!-- PROJECTS -->
-  <section class="projects-section">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      <a href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank" class="project-card">Cryptography Algorithms</a>
-      <a href="https://github.com/syedsameer-xtech/password-cracking-and-hashing" target="_blank" class="project-card">Password Cracking & Hashing</a>
-      <a href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank" class="project-card">Phishing URL Detector</a>
-      <a href="https://github.com/syedsameer-xtech/Securing-User-Registration-Systems" target="_blank" class="project-card">Securing User Registration Systems</a>
-      <a href="https://github.com/syedsameer-xtech/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" class="project-card">Easy Guide to Avoid Phishing</a>
-      <a href="https://github.com/syedsameer-xtech/Simple_Network_Sniffer" target="_blank" class="project-card">Simple Network Sniffer</a>
-    </div>
-  </section>
+/* PROJECTS */
+.projects-section { text-align:center; padding:50px 20px; }
+.projects-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; }
+.project-card { background:#222; padding:20px; border-radius:12px; text-decoration:none; color:#fff; box-shadow:0 0 15px #333; transition:0.3s; }
+.project-card:hover { transform:scale(1.05); box-shadow:0 0 25px #555; }
 
-  <!-- CERTIFICATES -->
-  <section class="certificates-section">
-    <h2>Certificates</h2>
-    <div class="certificates-grid">
-      <div class="certificate-box">Introduction to Python – IBM</div>
-      <div class="certificate-box">Cybersecurity Full Course – Simplilearn</div>
-      <div class="certificate-box">Python 3.4.3 – IIT Bombay Spoken Tutorial</div>
-      <div class="certificate-box">Database with SQL – CS50</div>
-      <div class="certificate-box">Machine Learning with R – Simplilearn</div>
-    </div>
-  </section>
+/* CERTIFICATES */
+.certificates-section { text-align:center; padding:50px 20px; }
+.certificates-grid { display:flex; flex-direction:column; align-items:center; gap:15px; }
+.certificate-box { background:#333; padding:15px 20px; border-radius:10px; box-shadow:0 0 15px #555; color:#ccc; opacity:0; transform: translateY(20px); animation: fadeInUp 0.6s forwards; }
+.certificate-box:nth-child(1) { animation-delay: 0.2s; }
+.certificate-box:nth-child(2) { animation-delay: 0.4s; }
+.certificate-box:nth-child(3) { animation-delay: 0.6s; }
+.certificate-box:nth-child(4) { animation-delay: 0.8s; }
+.certificate-box:nth-child(5) { animation-delay: 1s; }
+@keyframes fadeInUp { to { opacity:1; transform: translateY(0); } }
+.see-more-btn { display:inline-block; margin-top:20px; background:#444; padding:12px 25px; border-radius:10px; color:#fff; text-decoration:none; font-weight:bold; box-shadow:0 0 15px #555; transition:0.3s; }
+.see-more-btn:hover { transform:scale(1.1); box-shadow:0 0 25px #aaa; }
 
-  <!-- GAME -->
-  <section class="game-section">
-    <h2>Rock Paper Scissors</h2>
-    <div id="rps-game">
-      <button onclick="playRPS('rock')">🪨 Rock</button>
-      <button onclick="playRPS('paper')">📄 Paper</button>
-      <button onclick="playRPS('scissors')">✂️ Scissors</button>
-      <p id="rps-result"></p>
-      <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
-    </div>
-  </section>
+/* GAME */
+.game-section { text-align:center; padding:50px 20px; }
+#rps-game button { margin:5px; padding:10px 20px; border-radius:10px; border:none; background:#444; color:#fff; cursor:pointer; transition:0.3s; }
+#rps-game button:hover { transform:scale(1.1); box-shadow:0 0 15px #555; }
+#rps-result, #rps-score { margin-top:10px; font-weight:bold; }
 
-  <!-- FEEDBACK FORM -->
-  <section class="feedback-section">
-    <h2>Feedback / Contact</h2>
-    <form id="feedback-form">
-      <input type="text" placeholder="Your Name" required>
-      <input type="email" placeholder="Your Email" required>
-      <textarea placeholder="Your Message" rows="4" required></textarea>
-      <button type="submit">Send Feedback</button>
-    </form>
-  </section>
+/* FEEDBACK */
+.feedback-section { text-align:center; padding:50px 20px; }
+#feedback-form { display:flex; flex-direction:column; gap:15px; max-width:500px; margin:auto; }
+#feedback-form input, #feedback-form textarea { padding:10px; border-radius:10px; border:none; background:#222; color:#fff; outline:none; }
+#feedback-form button { padding:12px; border:none; border-radius:12px; background:#444; color:#fff; cursor:pointer; transition:0.3s; }
+#feedback-form button:hover { transform:scale(1.05); box-shadow:0 0 15px #555; }
 
-  <!-- SOCIAL & RESUME -->
-  <section class="contact-section">
-    <div class="contact-boxes">
-      <a href="mailto:syedsameer.xtech@gmail.com" class="contact-box">📧 Email</a>
-      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" class="contact-box">🔗 LinkedIn</a>
-      <a href="https://github.com/syedsameer-xtech" target="_blank" class="contact-box">🐙 GitHub</a>
-    </div>
-    <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" download class="resume-btn">📄 Download Resume</a>
-  </section>
+/* CONTACT & RESUME */
+.contact-section { text-align:center; padding:50px 20px; display:flex; flex-direction:column; gap:25px; align-items:center; }
+.contact-boxes { display:flex; justify-content:center; gap:20px; flex-wrap:wrap; }
+.contact-box { background:#333; padding:15px 25px; border-radius:12px; text-decoration:none; color:#fff; box-shadow:0 0 15px #555; transition:0.3s; }
+.contact-box:hover { transform:scale(1.2); box-shadow:0 0 25px #aaa; }
+.resume-btn { display:inline-block; background:#444; padding:15px 30px; border-radius:12px; color:#fff; text-decoration:none; font-weight:bold; box-shadow:0 0 15px #555; transition:0.3s; }
+.resume-btn:hover { transform:scale(1.2); box-shadow:0 0 25px #aaa; }
 
-  <script src="script.js"></script>
-</body>
-</html>
+/* HEADINGS */
+h2 { font-size:2rem; margin-bottom:25px; color:#fff; }
