@@ -41,24 +41,32 @@ window.addEventListener("resize", () => {
   canvas.height = window.innerHeight;
 });
 
-/* === RANDOM CYBER QUOTES === */
+/* === MOTIVATIONAL QUOTES === */
 const quotes = [
-  ` "Nothing kills you faster than your own mind. Don't stress over things out of control.",
+  "Nothing kills you faster than your own mind. Don't stress over things out of control.",
   "Having someone you can call crying, and end the call laughing is a true blessing!",
   'Your "normal" day is someone\'s dream, so be thankful every day.',
   "What you see daily shapes you. Your feed trains your brain each day.",
   "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
-  "When you have a heart of gold and pure intentions, you don't lose anyone- they lose you.",
+  "When you have a heart of gold and pure intentions, you don't lose anyone — they lose you.",
   "It's on you. To get you. Where you want to be.",
   "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever."
-
 ];
+
+const quoteEl = document.getElementById("quote-text");
+
 function showRandomQuote() {
-  const el = document.getElementById("quote-text");
-  const quote = quotes[Math.floor(Math.random() * quotes.length)];
-  el.textContent = quote;
+  const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+  quoteEl.style.opacity = 0;
+  setTimeout(() => {
+    quoteEl.textContent = `"${randomQuote}"`;
+    quoteEl.style.opacity = 1;
+  }, 400);
 }
+
+// Show new quote every 7 seconds
 setInterval(showRandomQuote, 7000);
+showRandomQuote();
 
 /* === ROCK PAPER SCISSORS GAME === */
 let playerScore = 0;
@@ -94,4 +102,3 @@ document.getElementById("feedback-form").addEventListener("submit", (e) => {
   alert("✅ Thank you for your feedback!");
   e.target.reset();
 });
-
