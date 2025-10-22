@@ -70,12 +70,4 @@ function playRPS(playerChoice){
   ){ result=`✅ You win! ${playerChoice} beats ${botChoice}.`; playerScore++; }
   else { result=`❌ You lose! ${botChoice} beats ${playerChoice}.`; botScore++; }
   resultEl.textContent=result;
-  scoreEl.textContent=`Your Score: ${playerScore} | Bot Score: ${botScore}`;
-}
-
-/* === FEEDBACK FORM === */
-document.getElementById("feedback-form").addEventListener("submit",(e)=>{
-  e.preventDefault();
-  alert("✅ Thank you for your feedback!");
-  e.target.reset();
-});
+  scoreEl.textContent=`Your Score: ${playerScore
