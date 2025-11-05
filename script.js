@@ -1,4 +1,8 @@
-/* === STARFIELD BACKGROUND === */
+/* === STARFIELD BACKGROUND ===
+   Original moving dots behavior restored (simple & effective).
+   Also includes quotes rotation and RPS game; no persistence.
+*/
+
 const canvas = document.getElementById("star-bg");
 const ctx = canvas.getContext("2d");
 
@@ -59,7 +63,6 @@ const quotes = [
   "Your mind is a magnet. Think blessings, attract blessings. Think problems, attract problems. Choose your thoughts wisely.",
   "Be the change you wish to see in the world."
 ];
-
 
 const quoteEl = document.getElementById("quote-text");
 function showRandomQuote() {
