@@ -16,19 +16,27 @@ body {
   transition: background 0.5s, color 0.5s;
 }
 
-/* ===== LOGO BUTTON ===== */
+/* ===== LOGO BUTTON =====
+   Slightly bigger, enforced 1:1 aspect ratio, scrolls away (position: absolute).
+   Stable hover/glow preserved.
+*/
 .logo-btn {
-  position: fixed;
+  position: absolute; /* scrolls with page (won't stay fixed and block content) */
   top: 20px;
   left: 20px;
-  width: 110px;
-  height: 110px;
+  width: 130px;       /* slightly bigger */
+  height: 130px;      /* keep square */
+  aspect-ratio: 1 / 1;
   background: transparent;
   border: none;
   cursor: pointer;
   border-radius: 15px;
   z-index: 1000;
+  overflow: hidden;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center center;
+  will-change: transform, box-shadow;
+  -webkit-tap-highlight-color: transparent;
 }
 .logo-btn img {
   width: 100%;
@@ -37,6 +45,10 @@ body {
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transform-origin: center center;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, box-shadow;
 }
 .logo-btn:hover {
   transform: scale(1.1);
@@ -283,4 +295,11 @@ section h2 {
 .resume-btn:hover {
   transform: scale(1.15);
   box-shadow: 0 0 25px #00ffff55;
+}
+
+/* small responsive tweaks */
+@media (max-width: 600px) {
+  .hero-box h1 { font-size: 2rem; }
+  .hero-box { padding: 20px 30px; }
+  .logo-btn { width: 90px; height: 90px; }
 }
