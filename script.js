@@ -39,8 +39,27 @@ const quotes = [
   "You'll be alone in the most difficult times of your life. These times make you wise, mature, and fearless.",
   "When you have a heart of gold and pure intentions, you don't lose anyone—they lose you.",
   "It's on you. To get you. Where you want to be.",
-  "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever."
+  "One day, you'll realize that your dream died because you chose comfort over effort. Don't let that regret haunt you forever.",
+
+  // ✅ Newly added quotes
+  "Some people talk to you in their free time, and some people free their time to talk to you. Make sure you know the difference.",
+  "Just because I give you advice doesn't mean I'm smarter than you. It means I've done more stupid things than you.",
+  "The most dangerous anger comes from someone with a good heart. They hold it in, stay calm, and forgive—until one day they can't anymore. Don't push a good person too far.",
+  "If you have the power to eat alone in a restaurant or sit alone in a cinema, then you can do anything in your life.",
+  "What they hate in you is missing in them. Keep shining.",
+  "Cry as hard as you want, but when you stop crying, make sure you never cry for the same reason again.",
+  "A pen can make mistakes but a pencil can't because it has a good friend: an eraser. A true friend helps fix your mistakes.",
+  "Dress well, even when you are alone. Treat yourself with the respect you deserve.",
+  "Drinking a lot of water every day helps you avoid drama, because you're too busy peeing. Stay hydrated.",
+  "Never become so thirsty that you drink from every cup presented to you. That's how you get poisoned.",
+  "No flower grows without rain, and no person grows without pain.",
+  "The best way to keep a prisoner from escaping is to make sure he never knows he is in prison.",
+  "Slow success builds character. Fast success builds ego.",
+  "The faker you are, the bigger your circle will be. The realer you are, the smaller your circle becomes.",
+  "Your mind is a magnet. Think blessings, attract blessings. Think problems, attract problems. Choose your thoughts wisely.",
+  "Be the change you wish to see in the world."
 ];
+
 
 const quoteEl = document.getElementById("quote-text");
 function showRandomQuote() {
@@ -77,3 +96,4 @@ function playRPS(playerChoice) {
 
   scoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
 }
+
