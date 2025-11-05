@@ -4,39 +4,18 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Syed Sameer | Aspiring Cybersecurity Expert</title>
-
-  <!-- SEO & Social -->
-  <meta name="description" content="Syed Sameer — aspiring cybersecurity expert. Projects in cryptography, phishing detection, network sniffing, and secure registration systems.">
-  <meta name="author" content="Syed Sameer">
-  <meta name="theme-color" content="#000000">
-  <meta property="og:title" content="Syed Sameer — Aspiring Cybersecurity Expert">
-  <meta property="og:description" content="Projects and certifications in cybersecurity, cryptography, phishing detection, and more.">
-  <meta property="og:image" content="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://syedsameer-xtech.github.io/">
-
-  <!-- Fonts & performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Favicon -->
-  <link rel="icon" href="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" type="image/png">
-
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <!-- LOGO -->
-  <button class="logo-btn" onclick="location.href='index.html'" aria-label="Home" title="Home">
+  <button class="logo-btn" onclick="location.href='index.html'" aria-label="Home">
     <img src="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" alt="Syed Sameer logo" />
   </button>
 
   <!-- STARFIELD BACKGROUND -->
-  <canvas id="star-bg" aria-hidden="true"></canvas>
-  <noscript>
-    <div style="position:fixed;inset:0;background:radial-gradient(circle at 30% 50%,#020202,#000);z-index:-2"></div>
-  </noscript>
+  <canvas id="star-bg"></canvas>
 
   <!-- HERO -->
   <header class="hero">
@@ -61,7 +40,7 @@
   <!-- QUOTES -->
   <section class="quotes-section">
     <div class="quotes-box">
-      <p id="quote-text" aria-live="polite">Loading wisdom...</p>
+      <p id="quote-text">Loading wisdom...</p>
     </div>
   </section>
 
@@ -78,12 +57,12 @@
   <section class="projects-section">
     <h2>Projects</h2>
     <div class="projects-grid">
-      <a href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank" rel="noopener" class="project-card">🔐 Cryptography Algorithms</a>
-      <a href="https://github.com/syedsameer-xtech/password-cracking-and-hashing" target="_blank" rel="noopener" class="project-card">🔑 Password Cracking & Hashing</a>
-      <a href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank" rel="noopener" class="project-card">🎣 Phishing URL Detector</a>
-      <a href="https://github.com/syedsameer-xtech/Securing-User-Registration-Systems" target="_blank" rel="noopener" class="project-card">🛡️ Securing User Registration Systems</a>
-      <a href="https://github.com/syedsameer-xtech/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" rel="noopener" class="project-card">📘 Easy Guide to Avoid Phishing</a>
-      <a href="https://github.com/syedsameer-xtech/Simple_Network_Sniffer" target="_blank" rel="noopener" class="project-card">🌐 Simple Network Sniffer</a>
+      <a href="https://github.com/syedsameer-xtech/cryptography-algorithms" target="_blank" class="project-card">🔐 Cryptography Algorithms</a>
+      <a href="https://github.com/syedsameer-xtech/password-cracking-and-hashing" target="_blank" class="project-card">🔑 Password Cracking & Hashing</a>
+      <a href="https://github.com/syedsameer-xtech/phishing-url-detector" target="_blank" class="project-card">🎣 Phishing URL Detector</a>
+      <a href="https://github.com/syedsameer-xtech/Securing-User-Registration-Systems" target="_blank" class="project-card">🛡️ Securing User Registration Systems</a>
+      <a href="https://github.com/syedsameer-xtech/Easy-Guide-to-Avoiding-Phishing-Scams" target="_blank" class="project-card">📘 Easy Guide to Avoid Phishing</a>
+      <a href="https://github.com/syedsameer-xtech/Simple_Network_Sniffer" target="_blank" class="project-card">🌐 Simple Network Sniffer</a>
     </div>
   </section>
 
@@ -97,7 +76,7 @@
       <div class="certificate-box">Simplilearn – Machine Learning with R</div>
       <div class="certificate-box">TATA Forage – Cybersecurity Analyst Simulation</div>
     </div>
-    <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing" target="_blank" rel="noopener" class="see-more-btn">📂 See More Certificates</a>
+    <a href="https://drive.google.com/drive/folders/1RB2iLHqzvsfokXb35whjumrMjJa8xS3G?usp=sharing" target="_blank" class="see-more-btn">📂 See More Certificates</a>
   </section>
 
   <!-- ROCK PAPER SCISSORS GAME -->
@@ -107,7 +86,7 @@
       <button onclick="playRPS('rock')">🪨 Rock</button>
       <button onclick="playRPS('paper')">📄 Paper</button>
       <button onclick="playRPS('scissors')">✂️ Scissors</button>
-      <p id="rps-result" aria-live="polite"></p>
+      <p id="rps-result"></p>
       <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
     </div>
   </section>
@@ -116,10 +95,10 @@
   <section class="contact-section">
     <div class="contact-boxes">
       <a href="mailto:syedsameer.xtech@gmail.com" class="contact-box">📧 Email</a>
-      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" rel="noopener" class="contact-box">🔗 LinkedIn</a>
-      <a href="https://github.com/syedsameer-xtech" target="_blank" rel="noopener" class="contact-box">🐙 GitHub</a>
+      <a href="https://www.linkedin.com/in/syed-sameer-dev" target="_blank" class="contact-box">🔗 LinkedIn</a>
+      <a href="https://github.com/syedsameer-xtech" target="_blank" class="contact-box">🐙 GitHub</a>
     </div>
-    <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" rel="noopener" class="resume-btn">📄 View / Download Resume</a>
+    <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" download class="resume-btn">📄 Download Resume</a>
   </section>
 
 <script src="script.js"></script>
