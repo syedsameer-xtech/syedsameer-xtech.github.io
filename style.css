@@ -45,10 +45,6 @@ body {
   transform: scale(1.1);
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
 }
-.logo-btn:focus {
-  outline: 3px solid rgba(0, 255, 255, 0.18);
-  outline-offset: 4px;
-}
 
 /* ===== STARFIELD BACKGROUND ===== */
 canvas#star-bg {
@@ -287,23 +283,4 @@ section h2 {
 .resume-btn:hover {
   transform: scale(1.15);
   box-shadow: 0 0 25px #00ffff55;
-}
-
-/* ===== REDUCED MOTION SUPPORT ===== */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-  .logo-btn:hover,
-  .skills-list li:hover,
-  .project-card:hover,
-  .certificate-box:hover,
-  .see-more-btn:hover,
-  .contact-box:hover,
-  .resume-btn:hover,
-  #rps-game button:hover {
-    transform: none !important;
-    box-shadow: none !important;
-  }
 }
