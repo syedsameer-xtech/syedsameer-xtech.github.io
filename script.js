@@ -1,13 +1,9 @@
-/* === STARFIELD + QUOTES + RPS (improved) ===
-   Features:
-   - Retina (devicePixelRatio) canvas scaling
-   - Pause-on-hover/focus for quotes & star animation
-   - No-repeat shuffled quotes queue
-   - Dynamic per-quote display time (based on length) with configurable min/max
-   - Smooth fades, defensive checks
-   - RPS game: event listeners, localStorage persistence, reset
-   - Logo button event listener (no inline onclick)
-   - respects prefers-reduced-motion
+/* === STARFIELD + QUOTES + RPS (improved, with robust RPS event delegation) ===
+   Changes from previous version:
+   - Event delegation for RPS (handles dynamic buttons/timing)
+   - Extra console logs for debugging
+   - Defensive checks
+   - Everything else unchanged (canvas scaling, quotes, persistence)
 */
 
 (function () {
@@ -49,7 +45,6 @@
 
   function initStars(count = 150) {
     if (!canvas) return;
-    // If user prefers reduced motion, keep fewer and static stars
     const effectiveCount = prefersReducedMotion ? Math.min(40, count) : count;
     const w = canvas.width / dpr;
     const h = canvas.height / dpr;
@@ -69,7 +64,6 @@
     ctx.clearRect(0, 0, w, h);
     ctx.fillStyle = "white";
 
-    // If paused (e.g., hover on quotes) just draw current stars once
     if (!pausedAnimation) {
       for (let s of stars) {
         ctx.beginPath();
@@ -79,7 +73,6 @@
         if (s.y > h) s.y = 0;
       }
     } else {
-      // draw without updating positions
       for (let s of stars) {
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
@@ -87,16 +80,13 @@
       }
     }
 
-    // schedule next frame (if user prefers reduced motion we still request but do minimal changes)
     animationId = requestAnimationFrame(animateStars);
   }
 
   if (canvas) {
     ctx = canvas.getContext('2d');
-    // Initialize and wire resize
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
-    // Start animation (unless reduced motion disables it)
     animateStars();
   }
 
@@ -132,22 +122,18 @@
   const quoteEl = el('#quote-text');
   const quotesBox = el('#quotes-box');
 
-  // Fade configuration
   const FADE_DURATION = 600; // ms
   if (quoteEl) {
     quoteEl.style.transition = `opacity ${FADE_DURATION}ms ease-in-out`;
-    // ensure initial state visible
     quoteEl.style.opacity = 1;
   }
 
-  // Shuffled queue of indices to avoid repeats until all shown
   let quoteQueue = [];
   function refillQuoteQueue() {
     quoteQueue = shuffleArray(quotes.map((_, i) => i));
   }
   refillQuoteQueue();
 
-  // Dynamic timing: base + per-char, clamped
   const QUOTE_BASE = 8000; // base ms
   const PER_CHAR = 65; // ms per char
   const QUOTE_MIN = 5000;
@@ -169,7 +155,6 @@
 
   function showQuote(text) {
     if (!quoteEl) return;
-    // fade out, change text, fade in
     quoteEl.style.opacity = 0;
     setTimeout(() => {
       quoteEl.textContent = text;
@@ -179,22 +164,18 @@
 
   function scheduleNextQuote() {
     if (!quoteEl || pausedQuotes) return;
-    // clear previous
     if (quoteTimeoutId) {
       clearTimeout(quoteTimeoutId);
       quoteTimeoutId = null;
     }
     const text = getNextQuoteText();
-    // show immediately (with fade)
     showQuote(text);
-    // schedule next based on length
     const interval = computeIntervalFor(text);
     quoteTimeoutId = setTimeout(() => {
       scheduleNextQuote();
     }, interval);
   }
 
-  // Pause/resume behavior on hover/focus
   function pauseEverything() {
     pausedQuotes = true;
     pausedAnimation = true;
@@ -207,29 +188,24 @@
     if (!pausedQuotes && !pausedAnimation) return;
     pausedQuotes = false;
     pausedAnimation = false;
-    // schedule next quote (start from new one)
     scheduleNextQuote();
   }
 
   if (quotesBox) {
-    // mouse
     quotesBox.addEventListener('mouseenter', pauseEverything);
     quotesBox.addEventListener('mouseleave', resumeEverything);
-    // keyboard focus for a11y
     quotesBox.addEventListener('focusin', pauseEverything);
     quotesBox.addEventListener('focusout', resumeEverything);
   }
 
-  // Start rotation unless reduced motion preference
   if (!prefersReducedMotion) {
     scheduleNextQuote();
   } else {
-    // show a single quote (no rotation)
     if (quoteEl) showQuote(quotes[Math.floor(Math.random() * quotes.length)]);
   }
 
-  /* ---------- Rock-Paper-Scissors (RPS) ---------- */
-  const rpsButtons = els('.rps-btn');
+  /* ---------- Rock-Paper-Scissors (RPS) with delegation ---------- */
+  const rpsContainer = el('#rps-game');
   const rpsResultEl = el('#rps-result');
   const rpsScoreEl = el('#rps-score');
   const rpsReset = el('#rps-reset');
@@ -249,6 +225,7 @@
     } catch (e) {
       playerScore = 0;
       botScore = 0;
+      console.warn('Failed to load RPS scores from localStorage:', e);
     }
     updateScoreUI();
   }
@@ -256,7 +233,7 @@
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ player: playerScore, bot: botScore }));
     } catch (e) {
-      // ignore storage errors
+      console.warn('Failed to save RPS scores to localStorage:', e);
     }
   }
   function updateScoreUI() {
@@ -283,17 +260,29 @@
     }
     updateScoreUI();
     saveScores();
+    console.debug('RPS played:', { playerChoice, botChoice, playerScore, botScore });
   }
 
-  // Attach event listeners to RPS buttons
-  if (rpsButtons.length) {
-    rpsButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const choice = btn.getAttribute('data-choice');
-        if (choice) playRPSChoice(choice);
-      });
-      // keyboard activation is default for <button>, but adding Enter/Space handling is redundant
+  // Delegated click handler — works even if buttons are added later
+  if (rpsContainer) {
+    rpsContainer.addEventListener('click', (ev) => {
+      const btn = ev.target.closest && ev.target.closest('.rps-btn');
+      if (!btn) return;
+      const choice = btn.getAttribute('data-choice');
+      if (!choice) return;
+      playRPSChoice(choice);
     });
+    console.debug('RPS delegation attached to #rps-game');
+  } else {
+    // fallback: attach to document to capture clicks anywhere (narrower than nothing)
+    document.addEventListener('click', (ev) => {
+      const btn = ev.target.closest && ev.target.closest('.rps-btn');
+      if (!btn) return;
+      const choice = btn.getAttribute('data-choice');
+      if (!choice) return;
+      playRPSChoice(choice);
+    });
+    console.debug('RPS fallback delegation attached to document');
   }
 
   if (rpsReset) {
@@ -308,22 +297,28 @@
 
   loadScores();
 
-  // Expose for debugging or external use
+  // Keep global for compatibility with inline calls (if any)
   window.playRPS = playRPSChoice;
 
   /* ---------- Logo button click (no inline onclick) ---------- */
   const logoBtn = el('#logo-btn');
   if (logoBtn) {
     logoBtn.addEventListener('click', () => {
-      // navigate to index.html (same page) — keep existing behavior
       window.location.href = 'index.html';
     });
   }
 
-  /* ---------- Clean up on unload (stop animations/timeouts) ---------- */
+  /* ---------- Clean up on unload ---------- */
   window.addEventListener('pagehide', () => {
     if (animationId) cancelAnimationFrame(animationId);
     if (quoteTimeoutId) clearTimeout(quoteTimeoutId);
+  });
+
+  // Debug summary
+  console.debug('script.js initialized', {
+    hasCanvas: !!canvas,
+    hasQuotesBox: !!quotesBox,
+    hasRpsContainer: !!rpsContainer
   });
 
 })();
