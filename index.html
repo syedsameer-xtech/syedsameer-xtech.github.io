@@ -1,22 +1,20 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Syed Sameer | Aspiring Cybersecurity Expert</title>
 
-  <!-- Non-visual improvements (safe) -->
   <meta name="description" content="Syed Sameer — aspiring cybersecurity expert. Projects in cryptography, phishing detection, network sniffing, and secure registration systems.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <!-- LOGO -->
-  <button class="logo-btn" onclick="location.href='index.html'" aria-label="Home" title="Home">
+  <button id="logo-btn" class="logo-btn" aria-label="Home" title="Home">
     <img src="https://raw.githubusercontent.com/syedsameer-xtech/syedsameer-xtech.github.io/main/Logo_0.png" alt="Syed Sameer logo" />
   </button>
 
@@ -45,7 +43,7 @@
 
   <!-- QUOTES -->
   <section class="quotes-section">
-    <div class="quotes-box">
+    <div class="quotes-box" id="quotes-box">
       <p id="quote-text" aria-live="polite">Loading wisdom...</p>
     </div>
   </section>
@@ -86,14 +84,15 @@
   </section>
 
   <!-- ROCK PAPER SCISSORS GAME -->
-  <section class="game-section">
-    <h2>🎮 Rock Paper Scissors</h2>
-    <div id="rps-game">
-      <button onclick="playRPS('rock')">🪨 Rock</button>
-      <button onclick="playRPS('paper')">📄 Paper</button>
-      <button onclick="playRPS('scissors')">✂️ Scissors</button>
-      <p id="rps-result"></p>
+  <section class="game-section" aria-labelledby="rps-heading">
+    <h2 id="rps-heading">🎮 Rock Paper Scissors</h2>
+    <div id="rps-game" role="group" aria-label="Rock Paper Scissors game">
+      <button class="rps-btn" data-choice="rock" aria-label="Rock">🪨 Rock</button>
+      <button class="rps-btn" data-choice="paper" aria-label="Paper">📄 Paper</button>
+      <button class="rps-btn" data-choice="scissors" aria-label="Scissors">✂️ Scissors</button>
+      <p id="rps-result" aria-live="polite"></p>
       <p id="rps-score">Your Score: 0 | Bot Score: 0</p>
+      <button id="rps-reset" class="see-more-btn" style="margin-top:10px;">Reset Score</button>
     </div>
   </section>
 
@@ -107,6 +106,6 @@
     <a href="https://github.com/syedsameer-xtech/syedsameer-xtech.github.io/blob/main/Syed_Sameer_Resume.pdf?raw=true" target="_blank" rel="noopener" download class="resume-btn">📄 Download Resume</a>
   </section>
 
-<script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
