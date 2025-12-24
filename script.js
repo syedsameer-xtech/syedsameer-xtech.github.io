@@ -62,6 +62,8 @@ const quotes = [
   "The faker you are, the bigger your circle will be. The realer you are, the smaller your circle becomes.",
   "Your mind is a magnet. Think blessings, attract blessings. Think problems, attract problems. Choose your thoughts wisely.",
   "Be the change you wish to see in the world."
+  "F-E-A-R has two meanings: 'Forgot Everything And run.''Face Everything And Rise.'",
+  "One day, you'll realize that your dream died because you chose comfort over effort"
 ];
 
 const quoteEl = document.getElementById("quote-text");
@@ -99,3 +101,4 @@ function playRPS(playerChoice) {
 
   scoreEl.textContent = `Your Score: ${playerScore} | Bot Score: ${botScore}`;
 }
+
