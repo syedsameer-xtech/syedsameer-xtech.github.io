@@ -21,11 +21,11 @@ body {
    Stable hover/glow preserved.
 */
 .logo-btn {
-  position: absolute; /* scrolls with page (won't stay fixed and block content) */
+  position: absolute;
   top: 20px;
   left: 20px;
-  width: 130px;       /* slightly bigger */
-  height: 130px;      /* keep square */
+  width: 130px;
+  height: 130px;
   aspect-ratio: 1 / 1;
   background: transparent;
   border: none;
@@ -50,10 +50,12 @@ body {
   transform: translateZ(0);
   will-change: transform, box-shadow;
 }
-.logo-btn:hover {
+.logo-btn:hover,
+.logo-btn:focus {
   transform: scale(1.1);
 }
-.logo-btn:hover img {
+.logo-btn:hover img,
+.logo-btn:focus img {
   transform: scale(1.1);
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.4);
 }
@@ -243,8 +245,9 @@ section h2 {
   font-size: 1rem;
   transition: 0.3s;
 }
-#rps-game button:hover {
-  transform: scale(1.1);
+#rps-game button:hover,
+#rps-game button:focus {
+  transform: scale(1.08);
   box-shadow: 0 0 20px #00ffff55;
 }
 #rps-result {
@@ -302,4 +305,13 @@ section h2 {
   .hero-box h1 { font-size: 2rem; }
   .hero-box { padding: 20px 30px; }
   .logo-btn { width: 90px; height: 90px; }
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
+  canvas#star-bg { background: #000; }
 }
